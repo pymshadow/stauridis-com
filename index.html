@@ -33,7 +33,7 @@ h1,h2,h3,.cat-cap,.p-name,.about-text h2,.ov-hero h1,.cat-title{font-family:Geor
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f6efe4;--bg2:#efe2d0;--ink:#3a2e22;--ink2:#4a3a2a;--ink3:#6a5a48;--terracotta:#c1623d;--terracotta2:#a8502f;--olive:#8a8154}
+:root{--bg:#f6efe4;--bg2:#efe2d0;--ink:#3a2e22;--ink2:#4a3a2a;--ink3:#6a5a48;--terracotta:#a04e2e;--terracotta2:#8a3e22;--olive:#8a8154}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @font-face{font-display:swap}
 body{background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
@@ -630,7 +630,7 @@ ALL_OVERLAYS.forEach(function(o){
 if(o!==id){var e=document.getElementById(o);e.classList.remove('on');e.style.display='none';}
 });
 var el=document.getElementById(id);
-el.style.display='block';void el.offsetWidth;el.classList.add('on');
+el.style.display='block';requestAnimationFrame(function(){el.classList.add('on');});
 el.scrollTop=0;document.body.style.overflow='hidden';rv();
 }
 function _showGallery(id){
