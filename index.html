@@ -957,59 +957,125 @@ document.getElementById('lb-wrap').addEventListener('wheel',function(e){
   img.classList.toggle('zoomed', lbScale > 1);
 },{passive:false});
 
-// Mobile: double-tap to zoom + smooth pan
+// Mobile: pinch-to-zoom + pan + double-tap + swipe
 (function(){
   var wrap=document.getElementById('lb-wrap');
   if(!wrap)return;
-  var _s=1,_px=0,_py=0,_on=false;
-  var _x0=0,_y0=0,_mx=0,_my=0;
+
+  var _s=1,_px=0,_py=0;
+  var _lastS=1,_lastPx=0,_lastPy=0;
   var _t=false,_tt=null;
+  var _startX=0,_startY=0;
+  var _panMx=0,_panMy=0;
+  var _pinchDist0=0,_pinchS0=1,_pinchMx=0,_pinchMy=0;
+  var _isPinching=false;
 
   function img(){return document.getElementById('lb-img');}
 
+  function clamp(val,min,max){return Math.max(min,Math.min(max,val));}
+
   function applyT(anim){
     var el=img();if(!el)return;
-    el.style.transition=anim?'transform .3s ease':'none';
+    // clamp pan so image doesn't go too far off screen
+    if(_s>1){
+      var maxPx=(wrap.offsetWidth*(_s-1))/2;
+      var maxPy=(wrap.offsetHeight*(_s-1))/2;
+      _px=clamp(_px,-maxPx,maxPx);
+      _py=clamp(_py,-maxPy,maxPy);
+    } else {
+      _px=0;_py=0;
+    }
+    el.style.transition=anim?'transform .25s ease':'none';
     el.style.transformOrigin='center center';
     el.style.transform='translate('+_px+'px,'+_py+'px) scale('+_s+')';
     el.classList.toggle('zoomed',_s>1);
     lbScale=_s;
   }
 
-  function reset(){
-    _s=1;_px=0;_py=0;_on=false;lbScale=1;
+  function reset(anim){
+    _s=1;_px=0;_py=0;
+    lbScale=1;
     var el=img();if(!el)return;
-    el.style.transition='transform .3s ease';
-    el.style.transformOrigin='center center';
+    el.style.transition=anim!==false?'transform .3s ease':'none';
     el.style.transform='scale(1)';
     el.classList.remove('zoomed');
   }
 
+  function dist(t){
+    var dx=t[0].clientX-t[1].clientX,dy=t[0].clientY-t[1].clientY;
+    return Math.sqrt(dx*dx+dy*dy);
+  }
+
+  function midpoint(t){
+    return{x:(t[0].clientX+t[1].clientX)/2,y:(t[0].clientY+t[1].clientY)/2};
+  }
+
   wrap.addEventListener('touchstart',function(e){
-    if(e.touches.length!==1)return;
-    _x0=_mx=e.touches[0].clientX;
-    _y0=_my=e.touches[0].clientY;
+    if(e.touches.length===2){
+      // pinch start
+      _isPinching=true;
+      _pinchDist0=dist(e.touches);
+      _pinchS0=_s;
+      var m=midpoint(e.touches);
+      _pinchMx=m.x;_pinchMy=m.y;
+      e.preventDefault();
+    } else if(e.touches.length===1){
+      _isPinching=false;
+      _startX=_panMx=e.touches[0].clientX;
+      _startY=_panMy=e.touches[0].clientY;
+    }
   },{passive:false});
 
   wrap.addEventListener('touchmove',function(e){
     e.preventDefault();
-    if(e.touches.length!==1||!_on)return;
-    var x=e.touches[0].clientX,y=e.touches[0].clientY;
-    _px+=x-_mx;_py+=y-_my;
-    _mx=x;_my=y;
-    applyT(false);
+    if(e.touches.length===2){
+      // pinch zoom
+      _isPinching=true;
+      var d=dist(e.touches);
+      var newS=clamp(_pinchS0*(d/_pinchDist0),1,5);
+      var m=midpoint(e.touches);
+      // pan delta from pinch midpoint movement
+      _px+=m.x-_pinchMx;
+      _py+=m.y-_pinchMy;
+      _pinchMx=m.x;_pinchMy=m.y;
+      _s=newS;
+      applyT(false);
+    } else if(e.touches.length===1&&!_isPinching){
+      // pan when zoomed
+      if(_s>1){
+        var x=e.touches[0].clientX,y=e.touches[0].clientY;
+        _px+=x-_panMx;_py+=y-_panMy;
+        _panMx=x;_panMy=y;
+        applyT(false);
+      } else {
+        _panMx=e.touches[0].clientX;
+        _panMy=e.touches[0].clientY;
+      }
+    }
   },{passive:false});
 
   wrap.addEventListener('touchend',function(e){
+    if(_isPinching){
+      if(e.touches.length<2){
+        _isPinching=false;
+        // snap back if scale < 1.1
+        if(_s<1.1){reset(true);}
+        else{applyT(true);}
+      }
+      return;
+    }
+
+    if(e.touches.length>0)return;
+
     var ex=e.changedTouches[0].clientX,ey=e.changedTouches[0].clientY;
-    var dx=ex-_x0,dy=ey-_y0;
+    var dx=ex-_startX,dy=ey-_startY;
 
     if(Math.abs(dx)<12&&Math.abs(dy)<12){
-      // double-tap
+      // double-tap to zoom in/out
       if(_t){
         clearTimeout(_tt);_t=false;
-        if(_on){reset();}
-        else{_s=2.5;_px=0;_py=0;_on=true;applyT(true);}
+        if(_s>1){reset(true);}
+        else{_s=2.5;_px=0;_py=0;applyT(true);}
         return;
       }
       _t=true;_tt=setTimeout(function(){_t=false;},280);
@@ -1017,7 +1083,7 @@ document.getElementById('lb-wrap').addEventListener('wheel',function(e){
     }
 
     // swipe nav when not zoomed
-    if(!_on&&Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){
+    if(_s<=1&&Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){
       dx<0?lbNav(1):lbNav(-1);
     }
   },{passive:false});
