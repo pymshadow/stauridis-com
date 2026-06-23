@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stauridis Photography &amp; Film | Panagiotis Stauridis — Athens</title>
+<meta name="description" content="Photography & film from Athens — portraits, couples, weddings, events and video. Honest, warm, unposed moments captured worldwide by Panagiotis Stauridis.">
+<meta property="og:title" content="Stauridis Photography & Film">
+<meta property="og:description" content="Photography & film from Athens — portraits, couples, weddings and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stauridis.com/">
+<meta property="og:image" content="https://stauridis.com/photos/hero.webp">
+<link rel="preload" as="image" href="photos/hero-mobile.webp" fetchpriority="high" media="(max-width:480px)">
+<link rel="preload" as="image" href="photos/hero-tablet.webp" fetchpriority="high" media="(min-width:481px) and (max-width:1024px)">
+<link rel="preload" as="image" href="photos/hero.webp" fetchpriority="high" media="(min-width:1025px)">
+<link rel="canonical" href="https://stauridis.com/">
+<meta name="theme-color" content="#f6efe4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="photos/PAN-2108.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://img.youtube.com">
+<link rel="dns-prefetch" href="https://www.youtube.com">
+<link rel="dns-prefetch" href="https://api.emailjs.com">
+<!-- Critical: system font fallbacks render instantly, no layout shift -->
+<style id="font-fallback">
+*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+h1,h2,h3,.cat-cap,.p-name,.about-text h2,.ov-hero h1,.cat-title{font-family:Georgia,'Times New Roman',serif}
+.hero-tag,.work-head .tag,.about-text .tag,.contact .tag,.frame-cap,.arr,.sub-card .arr,.logo span,.cap,.vid-lbl{font-family:cursive}
+</style>
+<!-- Async font load — zero render blocking -->
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f6efe4;--bg2:#efe2d0;--ink:#3a2e22;--ink2:#5a4a3a;--ink3:#8a7a68;--terracotta:#c1623d;--terracotta2:#a8502f;--olive:#8a8154}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@font-face{font-display:swap}
+body{background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
+img{max-width:100%}
+a{color:inherit}
+
+/* texture */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;z-index:9990;mix-blend-mode:multiply}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv1{transition-delay:.1s}.rv2{transition-delay:.2s}.rv3{transition-delay:.3s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:28px 56px;transition:background .4s,padding .4s,box-shadow .4s}
+nav.scrolled{background:rgba(246,239,228,.92);backdrop-filter:blur(10px);padding:18px 56px;box-shadow:0 4px 20px rgba(60,40,20,.06)}
+.logo{font-family:'Fraunces',serif;font-size:22px;font-weight:600;letter-spacing:.02em;cursor:pointer;text-decoration:none}
+.logo span{font-family:'Caveat',cursive;font-size:26px;color:var(--terracotta);font-weight:600}
+.nav-links{display:flex;gap:32px;align-items:center;font-size:13px;letter-spacing:.05em}
+.nav-links a,.nav-links button{color:var(--ink);text-decoration:none;background:none;border:none;font-family:inherit;font-size:13px;font-weight:300;letter-spacing:.05em;cursor:pointer;transition:color .3s}
+.nav-links a:hover,.nav-links button:hover{color:var(--terracotta)}
+.nav-more{border:1px solid var(--ink)!important;border-radius:30px;padding:9px 20px;transition:background .3s,color .3s,border-color .3s}
+.nav-more:hover{background:var(--terracotta);border-color:var(--terracotta)!important;color:#fff!important}
+
+/* HERO */
+.hero{padding:150px 56px 90px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero-tag{font-family:'Caveat',cursive;font-size:28px;color:var(--terracotta);margin-bottom:8px;transform:rotate(-2deg);display:inline-block}
+.hero-title{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,84px);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+.hero-title em{font-style:italic;color:var(--terracotta)}
+.hero-sub{font-size:15px;line-height:1.9;margin-top:28px;max-width:420px;color:var(--ink2)}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;margin-top:36px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--terracotta);padding-bottom:6px;transition:gap .3s}
+.hero-cta:hover{gap:20px}
+.hero-img-wrap{position:relative}
+.hero-img-wrap .frame{background:#fff;padding:14px 14px 50px;box-shadow:0 24px 50px rgba(60,40,20,.18);transform:rotate(2deg);transition:transform .5s}
+.hero-img-wrap .frame:hover{transform:rotate(0)}
+.hero-img-wrap img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;object-position:center}
+.hero-img-wrap .frame-cap{font-family:'Caveat',cursive;font-size:20px;color:var(--terracotta);text-align:center;margin-top:14px}
+.hero-img-wrap .accent-dot{position:absolute;width:140px;height:140px;border-radius:50%;background:var(--olive);opacity:.18;top:-30px;left:-40px;z-index:-1}
+
+/* DIVIDER */
+.divider{display:flex;align-items:center;gap:20px;padding:0 56px;margin:20px 0}
+.divider span{font-family:'Caveat',cursive;font-size:24px;color:var(--terracotta);white-space:nowrap}
+.divider .line{flex:1;height:1px;background:repeating-linear-gradient(to right,var(--ink) 0 6px,transparent 6px 12px);opacity:.3}
+
+/* WORK — 3 big polaroids */
+.work{padding:60px 56px 90px}
+.work{content-visibility:auto;contain-intrinsic-size:0 900px}
+/* content-visibility: skip rendering offscreen content */
+.about,.contact,footer,.overlay-pg{content-visibility:auto;contain-intrinsic-size:0 600px}
+.work-head{text-align:center;margin-bottom:56px}
+.work-head .tag{font-family:'Caveat',cursive;font-size:26px;color:var(--terracotta);display:block;transform:rotate(-1deg)}
+.work-head h2{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,56px);font-weight:400;margin-top:6px}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;max-width:1240px;margin:0 auto}
+.cat-card{background:#fff;padding:14px 14px 24px;box-shadow:0 16px 38px rgba(60,40,20,.14);cursor:pointer;transition:transform .45s,box-shadow .45s}
+.cat-card:nth-child(1){transform:rotate(-1.5deg)}
+.cat-card:nth-child(2){transform:rotate(1deg)}
+.cat-card:nth-child(3){transform:rotate(-1deg)}
+.cat-card:hover{transform:rotate(0) translateY(-8px);box-shadow:0 26px 54px rgba(60,40,20,.22)}
+.cat-card .img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden}
+.cat-card img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:sepia(.1) saturate(1.05);transition:transform .7s}
+.cat-card:hover img{transform:scale(1.04)}
+.cat-card .num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.3em;color:var(--ink3);margin-top:16px;text-align:center}
+.cat-card .cap{font-family:'Fraunces',serif;font-size:24px;font-weight:400;color:var(--ink);text-align:center;margin-top:4px}
+.cat-card .desc{font-size:12px;line-height:1.7;color:var(--ink2);text-align:center;margin-top:8px;padding:0 8px}
+.cat-card .arr{font-family:'Caveat',cursive;font-size:19px;color:var(--terracotta);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px;transition:gap .3s}
+.cat-card:hover .arr{gap:16px}
+
+/* ABOUT */
+.about{display:flex;flex-wrap:wrap;gap:64px;align-items:center;justify-content:center;padding:90px 56px;background:var(--bg2)}
+.about-img-wrap{position:relative;background:#fff;padding:14px 14px 50px;box-shadow:0 20px 50px rgba(60,40,20,.18);transform:rotate(-2deg);width:320px;flex-shrink:0;transition:transform .5s}
+.about-img-wrap:hover{transform:rotate(0)}
+.about-img-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 8%;display:block;filter:sepia(.1) saturate(1.05);max-height:430px}
+.about-img-wrap .cap{font-family:'Caveat',cursive;font-size:19px;color:var(--terracotta);text-align:center;margin-top:14px}
+.about-text{max-width:460px}
+.about-text .tag{font-family:'Caveat',cursive;font-size:26px;color:var(--terracotta);transform:rotate(-1deg);display:inline-block}
+.about-text h2{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,52px);font-weight:400;margin:10px 0 20px}
+.about-text p{font-size:15px;line-height:1.9;color:var(--ink2);margin-bottom:16px}
+
+/* CONTACT */
+.contact{padding:110px 56px;text-align:center}
+.contact .tag{font-family:'Caveat',cursive;font-size:28px;color:var(--terracotta);transform:rotate(-1deg);display:inline-block}
+.contact h2{font-family:'Fraunces',serif;font-size:clamp(40px,8vw,96px);font-weight:400;margin:14px 0 24px}
+.contact h2 a{color:var(--ink);text-decoration:none;transition:color .3s}
+.contact h2 a:hover{color:var(--terracotta)}
+.contact-email{font-size:14px;letter-spacing:.1em;color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--terracotta);padding-bottom:4px;display:inline-block}
+.contact-ig{display:block;margin-top:14px;font-size:14px;letter-spacing:.1em;color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--terracotta);padding-bottom:4px;width:fit-content;margin-left:auto;margin-right:auto}
+.contact-ig:hover{color:var(--terracotta)}
+.cf-wrap{max-width:520px;margin:54px auto 0;text-align:left}
+.cf-row{margin-bottom:26px}
+.cf-row input,.cf-row textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(60,40,20,.25);padding:12px 2px;font-family:'Jost',sans-serif;font-size:15px;font-weight:300;color:var(--ink);outline:none;transition:border-color .3s}
+.cf-row input::placeholder,.cf-row textarea::placeholder{color:var(--ink3);font-weight:300}
+.cf-row input:focus,.cf-row textarea:focus{border-bottom-color:var(--terracotta)}
+.cf-row textarea{resize:none;min-height:90px}
+.cf-btn{font-family:'Jost',sans-serif;font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:none;border:1px solid var(--ink);border-radius:30px;padding:13px 32px;cursor:pointer;transition:background .3s,color .3s,border-color .3s;margin-top:6px}
+.cf-btn:hover{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+.cf-btn:disabled{opacity:.5;cursor:default}
+.cf-success{display:none;text-align:center;font-family:'Caveat',cursive;font-size:24px;color:var(--terracotta);padding:30px 0}
+
+footer{padding:28px 56px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.1em;color:var(--ink3);border-top:1px solid rgba(60,40,20,.1)}
+
+/* ══ OVERLAY PAGES ══ */
+.overlay-pg{position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .5s;display:none}
+.overlay-pg.on{opacity:1;visibility:visible;display:block}
+.ov-nav{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:24px 56px;background:rgba(246,239,228,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(60,40,20,.08)}
+.ov-hero{padding:60px 56px 40px;text-align:center}
+.ov-hero .tag{font-family:'Caveat',cursive;font-size:26px;color:var(--terracotta);transform:rotate(-1deg);display:inline-block}
+.ov-hero h1{font-family:'Fraunces',serif;font-size:clamp(34px,5.5vw,64px);font-weight:400;margin-top:8px}
+.ov-hero h1 em{font-style:italic;color:var(--terracotta)}
+.ov-hero .ov-desc{font-size:14px;line-height:1.8;color:var(--ink2);max-width:560px;margin:16px auto 0}
+
+.btn{font-family:'Jost',sans-serif;font-size:12px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:none;border:1px solid var(--ink);border-radius:30px;padding:11px 26px;cursor:pointer;transition:background .3s,color .3s,border-color .3s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+
+/* subsection polaroid grid (Sofia, George... / Aggeliki, Emmanuella...) */
+.sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px 36px;max-width:1100px;margin:0 auto;padding:30px 56px 40px}
+.sub-grid.two{max-width:760px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.sub-card{background:#fff;padding:14px 14px 22px;box-shadow:0 16px 38px rgba(60,40,20,.14);cursor:pointer;transition:transform .45s,box-shadow .45s}
+.sub-card:nth-child(odd){transform:rotate(-1.5deg)}
+.sub-card:nth-child(even){transform:rotate(1.5deg)}
+.sub-card:hover{transform:rotate(0) translateY(-6px);box-shadow:0 24px 50px rgba(60,40,20,.2)}
+.sub-card .img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden}
+.sub-card img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:sepia(.1) saturate(1.05);transition:transform .7s}
+.sub-card:hover img{transform:scale(1.04)}
+.sub-card .cap{font-family:'Fraunces',serif;font-size:21px;color:var(--ink);text-align:center;margin-top:14px}
+.sub-card .sub{font-size:10px;letter-spacing:.18em;text-transform:uppercase;text-align:center;color:var(--ink3);margin-top:4px}
+.sub-card .arr{font-family:'Caveat',cursive;font-size:18px;color:var(--terracotta);text-align:center;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:6px;transition:gap .3s}
+.sub-card:hover .arr{gap:14px}
+
+/* coming soon */
+.soon{text-align:center;padding:40px 56px 80px}
+.soon .soon-card{background:#fff;padding:14px 14px 22px;box-shadow:0 16px 38px rgba(60,40,20,.14);max-width:340px;margin:0 auto;transform:rotate(-1.5deg)}
+.soon .soon-card .img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden}
+.soon .soon-card img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:sepia(.1) saturate(1.05) brightness(.7)}
+.soon .soon-card .cap{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--ink);text-align:center;margin-top:14px}
+.soon .soon-card .sub{font-family:'Caveat',cursive;font-size:18px;color:var(--terracotta);text-align:center;margin-top:2px}
+
+/* gallery masonry */
+.gal-masonry{columns:3;column-gap:18px;max-width:1100px;margin:0 auto;padding:20px 56px 50px}
+.gal-masonry.grid2{columns:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gal-item{break-inside:avoid;margin-bottom:18px;background:#fff;padding:10px 10px 14px;box-shadow:0 12px 30px rgba(60,40,20,.12);cursor:pointer;transition:transform .4s,box-shadow .4s}
+.gal-masonry.grid2 .gal-item{margin-bottom:0}
+.gal-item:nth-child(3n+1){transform:rotate(-1deg)}
+.gal-item:nth-child(3n+2){transform:rotate(.8deg)}
+.gal-item:nth-child(3n){transform:rotate(-.6deg)}
+.gal-item:hover{transform:rotate(0) translateY(-4px);box-shadow:0 20px 42px rgba(60,40,20,.18);z-index:2}
+.gal-item img{width:100%;display:block;filter:sepia(.08) saturate(1.04)}
+
+/* video page */
+.vid-section{max-width:1100px;margin:0 auto;padding:20px 56px 40px}
+.vid-lbl{font-family:'Caveat',cursive;font-size:24px;color:var(--terracotta);margin-bottom:24px;transform:rotate(-1deg);display:inline-block}
+.vid-long{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vid-reels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:14px}
+.yt-card{background:transparent;padding:0;box-shadow:none;transition:transform .4s}
+.yt-card:nth-child(odd){transform:none}
+.yt-card:nth-child(even){transform:none}
+.yt-card:hover{transform:translateY(-4px)}
+.yt-thumb{position:relative;overflow:hidden;width:100%;cursor:pointer;aspect-ratio:16/9;border-radius:6px;box-shadow:0 10px 28px rgba(60,40,20,.16)}
+.yt-card.reel .yt-thumb{aspect-ratio:9/16}
+.yt-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.08) saturate(1.02);transition:filter .4s,transform .6s}
+.yt-thumb:hover img{transform:scale(1.04)}
+.yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(58,46,34,.18);transition:background .3s}
+.yt-thumb:hover .yt-play{background:rgba(58,46,34,.06)}
+.yt-iframe-wrap{position:relative;width:100%;height:100%}
+.yt-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:500;background:rgba(40,30,20,.94);display:none;align-items:center;justify-content:center}
+.lb.on{display:flex}
+.lb img{max-width:90vw;max-height:88vh;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#fff;padding:12px;cursor:zoom-in;transition:transform .35s ease;transform-origin:center center;}
+.lb img.zoomed{cursor:zoom-out;transition:transform .15s ease}
+.lb-close{position:fixed;top:18px;right:18px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;cursor:pointer;line-height:1;opacity:1;background:rgba(40,30,20,.6);border:1px solid rgba(255,255,255,.3);border-radius:50%;z-index:10;transition:background .25s}
+.lb-close:hover{background:rgba(193,98,61,.85)}
+.lb-arr{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:34px;line-height:1;color:#fff;cursor:pointer;opacity:.85;user-select:none;background:rgba(40,30,20,.45);border:1px solid rgba(255,255,255,.3);border-radius:50%;z-index:3;transition:background .25s,opacity .25s}
+.lb-arr:hover{opacity:1;background:rgba(193,98,61,.85)}
+.lb-prev{left:24px}.lb-next{right:24px}
+.lb-track{display:none}
+
+#yt-fs{display:none;position:fixed;inset:0;z-index:9999;background:#000}
+#yt-fs iframe{width:100%;height:100%;border:none}
+#yt-fs-close{position:absolute;top:14px;right:18px;z-index:10000;background:rgba(0,0,0,.6);border:none;color:#fff;font-size:28px;line-height:1;padding:4px 12px;cursor:pointer;border-radius:4px}
+
+@media(max-width:900px){
+  nav{padding:20px 22px}
+  nav.scrolled{padding:14px 22px}
+  .nav-links{gap:18px}
+  .nav-links a:not(.nav-more){display:none}
+  .hero{grid-template-columns:1fr;padding:120px 22px 50px;gap:36px}
+  .hero-img-wrap{order:-1;max-width:340px;margin:0 auto}
+  .hero-img-wrap .frame{transform:none;box-shadow:0 12px 28px rgba(60,40,20,.15)}
+  .divider{padding:0 22px}
+  .work{padding:50px 22px 60px}
+  .cat-grid{grid-template-columns:1fr;gap:30px;max-width:380px}
+  .cat-card:nth-child(n){transform:rotate(-1deg)}
+  .about{flex-direction:column;padding:60px 22px;text-align:center;gap:32px}
+  .about-img-wrap{width:240px;margin:0 auto;transform:rotate(-1.5deg);padding:10px 10px 36px}
+  .about-img-wrap img{aspect-ratio:3/4;max-height:280px;object-position:center 8%}
+  .about-text{margin:0 auto;max-width:100%}
+  .contact{padding:70px 22px}
+  footer{flex-direction:column;gap:6px;text-align:center;padding:24px}
+  .ov-nav,.ov-hero,.sub-grid,.gal-masonry,.vid-section,.soon{padding-left:22px;padding-right:22px}
+  .sub-grid{grid-template-columns:1fr;max-width:340px;gap:28px}
+  .sub-card:nth-child(n){transform:rotate(-1deg)}
+  .gal-masonry{columns:2;column-gap:12px}
+  .gal-masonry.grid2{grid-template-columns:repeat(2,1fr);gap:12px}
+  .vid-long{grid-template-columns:1fr}
+  .vid-reels{grid-template-columns:repeat(2,1fr)}
+  /* mobile lightbox */
+  .lb-arr{display:none}
+  .lb.on{display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none}
+  .lb.on .lb-track{display:flex;width:100vw;height:100vh;will-change:transform;flex-shrink:0}
+  .lb.on .lb-track .lb-slide{flex:0 0 100vw;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .lb.on .lb-track .lb-slide img{max-width:92vw;max-height:84vh;object-fit:contain;background:#fff;padding:8px;box-shadow:0 16px 40px rgba(0,0,0,.5);will-change:transform;transform-origin:center center}
+  .lb #lb-img{display:none}
+}
+@media(max-width:480px){
+  .gal-masonry{columns:1}
+  .gal-masonry.grid2{grid-template-columns:1fr}
+  .vid-reels{grid-template-columns:1fr}
+}
+</style>
+
+<style id="critical">
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:28px 56px}
+.logo{font-family:Georgia,serif;font-size:22px;font-weight:600;color:#3a2e22;text-decoration:none}
+.logo span{color:#c1623d}
+body{background:#f6efe4;margin:0;overflow-x:hidden}
+</style>
+</head>
+<body>
+
+<!-- ════════ HOME ════════ -->
+<div id="pg-home">
+<nav id="nav">
+  <a class="logo" href="#" onclick="goHome();window.scrollTo({top:0,behavior:'smooth'});return false">Stauridis <span>Photography</span></a>
+  <div class="nav-links">
+    <a href="#work" onclick="goHome()">Work</a>
+    <a href="#about" onclick="goHome()">About</a>
+    <a href="#contact" onclick="goHome()">Contact</a>
+    <a href="#" class="nav-more" onclick="openOverlay('pg-more');return false">More ↗</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <span class="hero-tag">hello, I'm Panagiotis</span>
+    <h1 class="hero-title">"The Best Moments Happen When You Forget The <em>Camera Is There</em>"</h1>
+    <p class="hero-sub">Photography &amp; film from Athens — portraits, couples, and weddings captured in honest, unposed moments. Available worldwide.</p>
+    <a class="hero-cta" href="#work" onclick="goHome()">View The Work →</a>
+  </div>
+  <div class="hero-img-wrap">
+    <div class="accent-dot"></div>
+    <div class="frame">
+      <picture>
+        <source media="(max-width:480px)" srcset="photos/hero-mobile.webp" width="400" height="267">
+        <source media="(max-width:480px)" srcset="photos/hero-mobile.webp" width="600" height="400">
+        <source media="(max-width:1024px)" srcset="photos/hero-tablet.webp" width="1024" height="682">
+        <img src="photos/hero.webp" alt="Stauridis Photography Athens" loading="eager" fetchpriority="high" width="2000" height="1333">
+      </picture>
+      <div class="frame-cap">— Athens, Greece —</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>portfolio</span><div class="line"></div></div>
+
+<!-- 3 big polaroids -->
+<section class="work" id="work">
+  <div class="work-head rv">
+    <span class="tag">a few favorites</span>
+    <h2>Featured Work</h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card rv" onclick="openOverlay('pg-portraits')">
+      <div class="img-wrap"><picture><source media="(max-width:768px)" srcset="photos/PAN-3473-m.webp"><img src="photos/PAN-3473.webp" alt="Portraits" loading="lazy" decoding="async"></picture></div>
+      <div class="num">01</div>
+      <div class="cap">Portraits</div>
+      <div class="desc">Personal, editorial &amp; corporate portraits that reveal the essence of each individual.</div>
+      <div class="arr">view gallery →</div>
+    </div>
+    <div class="cat-card rv rv1" onclick="openOverlay('pg-couples')">
+      <div class="img-wrap"><picture><source media="(max-width:768px)" srcset="photos/couples-m.webp"><img src="photos/couples.webp" alt="Couple Photoshoots" loading="lazy" decoding="async"></picture></div>
+      <div class="num">02</div>
+      <div class="cap">Couple Photoshoots</div>
+      <div class="desc">Intimate sessions that tell the story of your connection — natural, candid, timeless.</div>
+      <div class="arr">view gallery →</div>
+    </div>
+    <div class="cat-card rv rv2" onclick="openOverlay('pg-weddings')">
+      <div class="img-wrap"><picture><source media="(max-width:768px)" srcset="photos/weddings-m.webp"><img src="photos/weddings.webp" alt="Weddings &amp; Baptisms" loading="lazy" decoding="async"></picture></div>
+      <div class="num">03</div>
+      <div class="cap">Weddings &amp; Baptisms</div>
+      <div class="desc">The most meaningful days of your life, documented with elegance and care.</div>
+      <div class="arr">view gallery →</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img-wrap rv">
+    <img src="photos/PAN-2108.webp" alt="Panagiotis Stauridis" loading="lazy">
+    <div class="cap">— behind the lens —</div>
+  </div>
+  <div class="about-text rv rv1">
+    <span class="tag">a little about me</span>
+    <h2>Panagiotis Stauridis</h2>
+    <p>I'm a photographer &amp; filmmaker based in Athens, drawn to natural light and genuine connection. My focus is romantic couples and modern portraits — capturing emotion in a way that feels real, chasing moments that aren't staged.</p>
+    <p>From intimate sessions to weddings, events and film, every project is approached with the same care.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <span class="tag">let's create together</span>
+  <h2><a href="https://www.instagram.com/panagiotisstauridis/" target="_blank" rel="noopener">Get in touch</a></h2>
+  <a class="contact-email" href="mailto:info.stauridis@gmail.com">info.stauridis@gmail.com</a>
+  <a class="contact-ig" href="https://www.instagram.com/panagiotisstauridis/" target="_blank" rel="noopener">@panagiotisstauridis</a>
+  <div class="cf-wrap">
+    <form id="cf" onsubmit="cfSubmit(event)">
+      <div class="cf-row"><input type="text" id="cf-name" placeholder="Your name" required autocomplete="off"></div>
+      <div class="cf-row"><input type="email" id="cf-email" placeholder="Your email" required autocomplete="off"></div>
+      <div class="cf-row"><textarea id="cf-message" placeholder="Tell me about your project..." required></textarea></div>
+      <button type="submit" class="cf-btn" id="cf-submit">Send message</button>
+    </form>
+    <div class="cf-success" id="cf-ok">✦ &nbsp; Message sent — I'll be in touch soon.</div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Stauridis Photography &amp; Film</span>
+  <span>Athens, Greece — Worldwide</span>
+</footer>
+</div>
+<!-- ════════ /HOME ════════ -->
+
+<!-- ════ PORTRAITS subsection ════ -->
+<div class="overlay-pg" id="pg-portraits">
+  <div class="ov-nav">
+    <a class="logo" href="#" onclick="goHome();return false">Stauridis <span>Photography</span></a>
+    <button class="btn" onclick="goHome()">← Home</button>
+  </div>
+  <div class="ov-hero">
+    <span class="tag">portraits</span>
+    <h1>Personal &amp; <em>Editorial</em></h1>
+    <div class="ov-desc">Personal, editorial and corporate portraits — each session a unique story told through light and emotion. Tap a session to view the full gallery.</div>
+  </div>
+  <div class="sub-grid">
+    <div class="sub-card" onclick="openGallery('sofia')">
+      <div class="img-wrap"><img src="photos/PAN-3427.webp" alt="Sofia"></div>
+      <div class="cap">Sofia</div><div class="sub">Rome · Portrait Session</div>
+      <div class="arr">view photos →</div>
+    </div>
+    <div class="sub-card" onclick="openGallery('george')">
+      <div class="img-wrap"><img src="photos/PAN-7018.webp" alt="George"></div>
+      <div class="cap">George</div><div class="sub">Athens · Portrait Session</div>
+      <div class="arr">view photos →</div>
+    </div>
+    <div class="sub-card" onclick="openGallery('ofelia')">
+      <div class="img-wrap"><img src="photos/PAN-4132.webp" alt="Ofelia"></div>
+      <div class="cap">Ofelia's Valentine's</div><div class="sub">Studio · Valentine Session</div>
+      <div class="arr">view photos →</div>
+    </div>
+    <div class="sub-card" onclick="openGallery('evelina')">
+      <div class="img-wrap"><img src="photos/PANA-0592.webp" alt="Evelina"></div>
+      <div class="cap">Evelina</div><div class="sub">Studio · Editorial Session</div>
+      <div class="arr">view photos →</div>
+    </div>
+    <div class="sub-card" onclick="openGallery('giannis')">
+      <div class="img-wrap"><img src="photos/_B1A1447.webp" alt="Giannis"></div>
+      <div class="cap">Giannis</div><div class="sub">Boxing Photoshoot</div>
+      <div class="arr">view photos →</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:0 56px 70px"><button class="btn" onclick="goHome()">← Back Home</button></div>
+  <footer><span>© 2026 Stauridis Photography &amp; Film</span><span>Athens, Greece — Worldwide</span></footer>
+</div>
+
+<!-- ════ COUPLES subsection ════ -->
+<div class="overlay-pg" id="pg-couples">
+  <div class="ov-nav">
+    <a class="logo" href="#" onclick="goHome();return false">Stauridis <span>Photography</span></a>
+    <button class="btn" onclick="goHome()">← Home</button>
+  </div>
+  <div class="ov-hero">
+    <span class="tag">couples</span>
+    <h1>Love <em>Stories</em></h1>
+    <div class="ov-desc">Intimate sessions that tell the story of your connection — natural, candid, timeless. Tap a couple to view their full gallery.</div>
+  </div>
+  <div class="sub-grid two">
+    <div class="sub-card" onclick="openGallery('aggeliki')">
+      <div class="img-wrap"><img src="photos/ac_1859.webp" alt="Aggeliki & Christos"></div>
+      <div class="cap">Aggeliki &amp; Christos</div><div class="sub">Athens · Couple Session</div>
+      <div class="arr">view photos →</div>
+    </div>
+    <div class="sub-card" onclick="openGallery('emmanuella')">
+      <div class="img-wrap"><img src="photos/el_307.webp" alt="Emmanuella & Leuteris"></div>
+      <div class="cap">Emmanuella &amp; Leuteris</div><div class="sub">Samos Beach · Couple Session</div>
+      <div class="arr">view photos →</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:0 56px 70px"><button class="btn" onclick="goHome()">← Back Home</button></div>
+  <footer><span>© 2026 Stauridis Photography &amp; Film</span><span>Athens, Greece — Worldwide</span></footer>
+</div>
+
+<!-- ════ WEDDINGS (coming soon) ════ -->
+<div class="overlay-pg" id="pg-weddings">
+  <div class="ov-nav">
+    <a class="logo" href="#" onclick="goHome();return false">Stauridis <span>Photography</span></a>
+    <button class="btn" onclick="goHome()">← Home</button>
+  </div>
+  <div class="ov-hero">
+    <span class="tag">weddings &amp; baptisms</span>
+    <h1>The Most <em>Meaningful</em> Days</h1>
+    <div class="ov-desc">Documented with elegance and care. A dedicated gallery is on its way — until then, let's talk about your day.</div>
+  </div>
+  <div class="soon">
+    <div class="soon-card">
+      <div class="img-wrap"><picture><source media="(max-width:768px)" srcset="photos/weddings-m.webp"><img src="photos/weddings.webp" alt="Weddings &amp; Baptisms" loading="lazy" decoding="async"></picture></div>
+      <div class="cap">Coming Soon</div>
+      <div class="sub">stay tuned</div>
+    </div>
+    <div style="margin-top:40px">
+      <a class="contact-email" href="mailto:info.stauridis@gmail.com">info.stauridis@gmail.com</a>
+      <a class="contact-ig" href="https://www.instagram.com/panagiotisstauridis/" target="_blank" rel="noopener">@panagiotisstauridis</a>
+    </div>
+    <div style="margin-top:40px"><button class="btn" onclick="goHome()">← Back Home</button></div>
+  </div>
+  <footer><span>© 2026 Stauridis Photography &amp; Film</span><span>Athens, Greece — Worldwide</span></footer>
+</div>
+
+<!-- ════ MORE ════ -->
+<div class="overlay-pg" id="pg-more">
+  <div class="ov-nav">
+    <a class="logo" href="#" onclick="goHome();return false">Stauridis <span>Photography</span></a>
+    <button class="btn" onclick="goHome()">← Home</button>
+  </div>
+  <div class="ov-hero">
+    <span class="tag">more of what we do</span>
+    <h1>Additional <em>Services</em></h1>
+    <div class="ov-desc">Beyond portraits and couples — events, street photography, and cinematic video work.</div>
+  </div>
+  <div class="sub-grid">
+    <div class="sub-card" onclick="openGallery('events')">
+      <div class="img-wrap"><img src="photos/nightlife.webp" alt="Events & Nightlife"></div>
+      <div class="cap">Events &amp; Nightlife</div><div class="sub">Corporate · Clubs · Concerts</div>
+      <div class="arr">view photos →</div>
+    </div>
+    <div class="sub-card" onclick="openGallery('street')">
+      <div class="img-wrap"><img src="photos/street.webp" alt="Street Photography"></div>
+      <div class="cap">Street Photography</div><div class="sub">Urban · Travel · Documentary</div>
+      <div class="arr">view photos →</div>
+    </div>
+    <div class="sub-card" onclick="openOverlay('pg-video')">
+      <div class="img-wrap"><img src="photos/video.webp" alt="Video Editing"></div>
+      <div class="cap">Video Editing</div><div class="sub">Films · Reels · Highlights</div>
+      <div class="arr">watch films →</div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:0 56px 70px"><button class="btn" onclick="goHome()">← Back Home</button></div>
+  <footer><span>© 2026 Stauridis Photography &amp; Film</span><span>Athens, Greece — Worldwide</span></footer>
+</div>
+
+<!-- ════ GALLERY (photos) ════ -->
+<div class="overlay-pg" id="pg-gallery">
+  <div class="ov-nav">
+    <a class="logo" href="#" onclick="goHome();return false">Stauridis <span>Photography</span></a>
+    <button class="btn" id="gal-back" onclick="closeGallery()">← Back</button>
+  </div>
+  <div class="ov-hero">
+    <span class="tag" id="gal-tag"></span>
+    <h1 id="gal-title"></h1>
+    <div class="ov-desc" id="gal-desc"></div>
+  </div>
+  <div class="gal-masonry" id="gal-masonry"></div>
+  <div style="text-align:center;padding:0 56px 70px"><button class="btn" id="gal-back2" onclick="closeGallery()">← Back</button></div>
+  <footer><span>© 2026 Stauridis Photography &amp; Film</span><span>Athens, Greece — Worldwide</span></footer>
+</div>
+
+<!-- ════ VIDEO ════ -->
+<div class="overlay-pg" id="pg-video">
+  <div class="ov-nav">
+    <a class="logo" href="#" onclick="goHome();return false">Stauridis <span>Photography</span></a>
+    <button class="btn" onclick="openOverlay('pg-more')">← Back</button>
+  </div>
+  <div class="ov-hero">
+    <span class="tag">video editing</span>
+    <h1>Films &amp; <em>Reels</em></h1>
+    <div class="ov-desc">From raw footage to polished film — cinematic long-form films and dynamic reels that tell your story.</div>
+  </div>
+  <div class="vid-section">
+    <span class="vid-lbl">long form</span>
+    <div class="vid-long">
+      <div class="yt-card"><div class="yt-thumb" onclick="playVideo(this,'PnFGYRU5uII')"><img loading="lazy" src="https://img.youtube.com/vi/PnFGYRU5uII/maxresdefault.jpg" alt="Long Form 1"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card"><div class="yt-thumb" onclick="playVideo(this,'3IOtbv2b2cU')"><img loading="lazy" src="https://img.youtube.com/vi/3IOtbv2b2cU/maxresdefault.jpg" alt="Long Form 2"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card"><div class="yt-thumb" onclick="playVideo(this,'GJw1jcQjCNM')"><img loading="lazy" src="https://img.youtube.com/vi/GJw1jcQjCNM/maxresdefault.jpg" alt="Long Form 3"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="48" height="48"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+    </div>
+  </div>
+  <div class="vid-section">
+    <span class="vid-lbl">reels</span>
+    <div class="vid-reels">
+      <div class="yt-card reel"><div class="yt-thumb" onclick="playVideo(this,'WsGoxpSjQck')"><img loading="lazy" src="https://img.youtube.com/vi/WsGoxpSjQck/maxresdefault.jpg" alt="Reel 1"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="36" height="36"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card reel"><div class="yt-thumb" onclick="playVideo(this,'k7gJIeNLJ4Q')"><img loading="lazy" src="https://img.youtube.com/vi/k7gJIeNLJ4Q/maxresdefault.jpg" alt="Reel 2"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="36" height="36"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card reel"><div class="yt-thumb" onclick="playVideo(this,'lAmggZ-t5VQ')"><img loading="lazy" src="https://img.youtube.com/vi/lAmggZ-t5VQ/maxresdefault.jpg" alt="Reel 3"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="36" height="36"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card reel"><div class="yt-thumb" onclick="playVideo(this,'WXgJJzf_UtA')"><img loading="lazy" src="https://img.youtube.com/vi/WXgJJzf_UtA/maxresdefault.jpg" alt="Reel 4"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="36" height="36"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card reel"><div class="yt-thumb" onclick="playVideo(this,'RM2GRpgHub8')"><img loading="lazy" src="https://img.youtube.com/vi/RM2GRpgHub8/maxresdefault.jpg" alt="Reel 5"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="36" height="36"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card reel"><div class="yt-thumb" onclick="playVideo(this,'nTHuB8oDBIc')"><img loading="lazy" src="https://img.youtube.com/vi/nTHuB8oDBIc/maxresdefault.jpg" alt="Reel 6"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="36" height="36"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card reel"><div class="yt-thumb" onclick="playVideo(this,'v38BKF948bE')"><img loading="lazy" src="https://img.youtube.com/vi/v38BKF948bE/maxresdefault.jpg" alt="Reel 7"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="36" height="36"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+      <div class="yt-card reel"><div class="yt-thumb" onclick="playVideo(this,'5Q4pLgTNjK0')"><img loading="lazy" src="https://img.youtube.com/vi/5Q4pLgTNjK0/maxresdefault.jpg" alt="Reel 8"><div class="yt-play"><svg viewBox="0 0 24 24" fill="#fff" width="36" height="36"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:30px 56px 70px"><button class="btn" onclick="openOverlay('pg-more')">← Back to Services</button></div>
+  <footer><span>© 2026 Stauridis Photography &amp; Film</span><span>Athens, Greece — Worldwide</span></footer>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <span class="lb-close" onclick="closeLb()">×</span>
+  <div class="lb-arr lb-prev" onclick="lbNav(-1)">‹</div>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-track" id="lb-track"></div>
+  <div class="lb-arr lb-next" onclick="lbNav(1)">›</div>
+</div>
+
+<!-- YT FULLSCREEN -->
+<div id="yt-fs"><button id="yt-fs-close" onclick="closeVideoFs()">×</button></div>
+
+
+<script>var emailjs=function(e){"use strict";class t{constructor(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:0,t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"Network Error";this.status=e,this.text=t}}const i={origin:"https://api.emailjs.com",blockHeadless:!1,storageProvider:(()=>{if("undefined"!=typeof localStorage)return{get:e=>Promise.resolve(localStorage.getItem(e)),set:(e,t)=>Promise.resolve(localStorage.setItem(e,t)),remove:e=>Promise.resolve(localStorage.removeItem(e))}})()},r=e=>e?"string"==typeof e?{publicKey:e}:"[object Object]"===e.toString()?e:{}:{},o=function(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"https://api.emailjs.com";if(!e)return;const o=r(e);i.publicKey=o.publicKey,i.blockHeadless=o.blockHeadless,i.storageProvider=o.storageProvider,i.blockList=o.blockList,i.limitRate=o.limitRate,i.origin=o.origin||t},a=async function(e,r){let o=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{};const a=await fetch(i.origin+e,{method:"POST",headers:o,body:r}),s=await a.text(),n=new t(a.status,s);if(a.ok)return n;throw n},s=(e,t,i)=>{if(!e||"string"!=typeof e)throw"The public key is required. Visit https://dashboard.emailjs.com/admin/account";if(!t||"string"!=typeof t)throw"The service ID is required. Visit https://dashboard.emailjs.com/admin";if(!i||"string"!=typeof i)throw"The template ID is required. Visit https://dashboard.emailjs.com/admin/templates"},n=e=>e.webdriver||!e.languages||0===e.languages.length,l=()=>new t(451,"Unavailable For Headless Browser"),c=(e,t)=>{if((e=>!e.list?.length||!e.watchVariable)(e))return!1;((e,t)=>{if(!Array.isArray(e))throw"The BlockList list has to be an array";if("string"!=typeof t)throw"The BlockList watchVariable has to be a string"})(e.list,e.watchVariable);const i=(r=t,o=e.watchVariable,r instanceof FormData?r.get(o):r[o]);var r,o;return"string"==typeof i&&e.list.includes(i)},d=()=>new t(403,"Forbidden"),m=async(e,t,i)=>{if(!t.throttle||!i)return!1;((e,t)=>{if("number"!=typeof e||e<0)throw"The LimitRate throttle has to be a positive number";if(t&&"string"!=typeof t)throw"The LimitRate ID has to be a non-empty string"})(t.throttle,t.id);const r=t.id||e,o=await(async(e,t,i)=>{const r=Number(await i.get(e)||0);return t-Date.now()+r})(r,t.throttle,i);return o>0||(await i.set(r,Date.now().toString()),!1)},h=()=>new t(429,"Too Many Requests"),p=async(e,t,o,p)=>{const u=r(p),b=u.publicKey||i.publicKey,g=u.blockHeadless||i.blockHeadless,f=u.storageProvider||i.storageProvider,w={...i.blockList,...u.blockList},y={...i.limitRate,...u.limitRate};if(g&&n(navigator))return Promise.reject(l());if(s(b,e,t),(e=>{if(e&&"[object Object]"!==e.toString())throw"The template params have to be the object. Visit https://www.emailjs.com/docs/sdk/send/"})(o),o&&c(w,o))return Promise.reject(d());if(await m(location.pathname,y,f))return Promise.reject(h());const v={lib_version:"4.4.1",user_id:b,service_id:e,template_id:t,template_params:o};return a("/api/v1.0/email/send",JSON.stringify(v),{"Content-type":"application/json"})},u=async(e,t,o,p)=>{const u=r(p),b=u.publicKey||i.publicKey,g=u.blockHeadless||i.blockHeadless,f=i.storageProvider||u.storageProvider,w={...i.blockList,...u.blockList},y={...i.limitRate,...u.limitRate};if(g&&n(navigator))return Promise.reject(l());const v=(e=>"string"==typeof e?document.querySelector(e):e)(o);s(b,e,t),(e=>{if(!e||"FORM"!==e.nodeName)throw"The 3rd parameter is expected to be the HTML form element or the style selector of the form"})(v);const j=new FormData(v);return c(w,j)?Promise.reject(d()):await m(location.pathname,y,f)?Promise.reject(h()):(j.append("lib_version","4.4.1"),j.append("service_id",e),j.append("template_id",t),j.append("user_id",b),a("/api/v1.0/email/send-form",j))};var b={init:o,send:p,sendForm:u,EmailJSResponseStatus:t};return e.EmailJSResponseStatus=t,e.default=b,e.init=o,e.send=p,e.sendForm=u,Object.defineProperty(e,"__esModule",{value:!0}),e}({});
+  emailjs.init('zyqkoPPGMXI444vf7');
+emailjs.init('zyqkoPPGMXI444vf7');</script>
+<script>
+var GALLERIES={
+sofia:{title:'Sofia',tag:'Portraits · Rome',desc:'A personal portrait session in Rome. Natural light, timeless tones, and imagery crafted for modern travelers.',photos:['photos/PAN-3473.webp','photos/PAN-3462.webp','photos/PAN-3469.webp','photos/PAN-3427.webp','photos/PAN-3323.webp','photos/PAN-3336.webp','photos/PAN-3352.webp','photos/PAN-3355.webp','photos/PAN-3372.webp','photos/PAN-3422.webp','photos/PAN-3438.webp'],back:'pg-portraits'},
+george:{title:'George',tag:'Portraits · Athens',desc:'A bold editorial session captured in the golden light of Athens. Confidence, style, and timeless masculine elegance.',photos:['photos/PAN-7018.webp','photos/PAN-7025-2.webp','photos/PAN-7046-2.webp','photos/PAN-7004-3.webp'],back:'pg-portraits'},
+ofelia:{title:"Ofelia's Valentine's Day",tag:'Portraits · Studio',desc:"A vibrant Valentine's Day studio session full of passion, roses, and bold energy. Love in every frame.",photos:['photos/PAN-4132.webp','photos/PAN-4135.webp','photos/PAN-4191.webp','photos/PAN-4117.webp','photos/PAN-4125.webp'],back:'pg-portraits'},
+evelina:{title:'Evelina',tag:'Portraits · Studio',desc:'A striking editorial session exploring contrast, movement, and mood through bold lighting and effortless energy.',grid:true,photos:['photos/PANA-0579.webp','photos/PANA-0593.webp','photos/PANA-0595.webp','photos/PANA-0605.webp','photos/PANA-0592.webp','photos/PANA-0606.webp'],back:'pg-portraits'},
+giannis:{title:'Giannis',tag:'Portraits · Boxing',desc:'A raw, high-intensity boxing photoshoot — strength, focus, and passion captured in every frame.',photos:['photos/_B1A1447.webp','photos/_B1A1133.webp','photos/_B1A1173.webp','photos/_B1A1185.webp','photos/_B1A1217.webp','photos/_B1A1242.webp','photos/_B1A1313.webp','photos/_B1A1415.webp'],back:'pg-portraits'},
+aggeliki:{title:'Aggeliki & Christos',tag:'Couples · Athens',desc:'A raw, rebellious love story told through motorcycle rides, stolen kisses, and moments that feel like freedom.',photos:['photos/ac_1740.webp','photos/ac_1859.webp','photos/ac_1755.webp','photos/ac_1772.webp','photos/ac_1788.webp','photos/ac_1805.webp','photos/ac_1823.webp','photos/ac_1825.webp','photos/ac_1851.webp'],back:'pg-couples'},
+emmanuella:{title:'Emmanuella & Leuteris',tag:'Couples · Samos Beach',desc:'A summer love session by the sea — laughter, water, and warmth that fills every frame.',photos:['photos/el_389.webp','photos/el_425.webp','photos/el_307.webp','photos/el_351.webp','photos/el_401.webp'],back:'pg-couples'},
+events:{title:'Events & Nightlife',tag:'Events · Athens',desc:'Corporate events, club nights, concerts, and private parties — captured with energy and precision.',photos:['photos/ev_1.webp','photos/ev_1_1.webp','photos/ev_2.webp','photos/ev_2_1.webp','photos/ev_3.webp','photos/ev_3_1.webp','photos/ev_4.webp','photos/ev_5.webp','photos/ev_5305.webp','photos/ev_0110.webp'],back:'pg-more'},
+street:{title:'Street Photography',tag:'Street · Rome',desc:'Urban stories, travel moments, and documentary photography — the world as it is, raw and beautiful.',photos:['photos/st_3642.webp','photos/st_3677.webp','photos/st_3681.webp','photos/st_3573.webp','photos/st_3489.webp','photos/st_3523.webp','photos/st_3549.webp','photos/st_3554.webp','photos/st_3555.webp','photos/st_3557.webp','photos/st_3563.webp'],back:'pg-more'}
+};
+var ALL_OVERLAYS=['pg-portraits','pg-couples','pg-weddings','pg-more','pg-gallery','pg-video'];
+var lbImgs=[],lbIdx=0,galBack='pg-portraits';
+var _curGallery=null,_isPopping=false;
+/* ── HASH ROUTING ──────────────────────────────────────────────────────── */
+// Map: hash → action
+var ROUTES={
+'':          function(){_showHome()},
+'portraits': function(){_showOverlay('pg-portraits')},
+'couples':   function(){_showOverlay('pg-couples')},
+'weddings':  function(){_showOverlay('pg-weddings')},
+'more':      function(){_showOverlay('pg-more')},
+'video':     function(){_showOverlay('pg-video')},
+'sofia':     function(){_showOverlay('pg-portraits');setTimeout(function(){_showGallery('sofia')},320)},
+'george':    function(){_showOverlay('pg-portraits');setTimeout(function(){_showGallery('george')},320)},
+'ofelia':    function(){_showOverlay('pg-portraits');setTimeout(function(){_showGallery('ofelia')},320)},
+'evelina':   function(){_showOverlay('pg-portraits');setTimeout(function(){_showGallery('evelina')},320)},
+'giannis':   function(){_showOverlay('pg-portraits');setTimeout(function(){_showGallery('giannis')},320)},
+'aggeliki':  function(){_showOverlay('pg-couples');setTimeout(function(){_showGallery('aggeliki')},320)},
+'emmanuella':function(){_showOverlay('pg-couples');setTimeout(function(){_showGallery('emmanuella')},320)},
+'events':    function(){_showOverlay('pg-more');setTimeout(function(){_showGallery('events')},320)},
+'street':    function(){_showOverlay('pg-more');setTimeout(function(){_showGallery('street')},320)}
+};
+function _getHash(){return (location.hash||'').replace(/^#/,'').toLowerCase()}
+function _route(){
+var h=_getHash();
+var fn=ROUTES[h]||ROUTES[''];
+fn();
+}
+// Push hash without triggering popstate handler
+function _pushHash(hash){
+_isPopping=false;
+history.pushState({hash:hash},'',hash?'#'+hash:'#');
+}
+window.addEventListener('popstate',function(e){
+_isPopping=true;
+_route();
+});
+/* ── LOW-LEVEL SHOW (no history push) ─────────────────────────────────── */
+function _showHome(){
+ALL_OVERLAYS.forEach(function(id){
+var el=document.getElementById(id);
+el.classList.remove('on');
+setTimeout(function(){if(!el.classList.contains('on'))el.style.display='none'},500);
+});
+document.body.style.overflow='';
+document.documentElement.style.overflow='';
+}
+function _showOverlay(id){
+ALL_OVERLAYS.forEach(function(o){
+if(o!==id){var e=document.getElementById(o);e.classList.remove('on');e.style.display='none';}
+});
+var el=document.getElementById(id);
+el.style.display='block';void el.offsetWidth;el.classList.add('on');
+el.scrollTop=0;document.body.style.overflow='hidden';rv();
+}
+function _showGallery(id){
+var g=GALLERIES[id];if(!g)return;
+_curGallery=id;galBack=g.back||'pg-portraits';
+document.getElementById('gal-tag').textContent=g.tag;
+document.getElementById('gal-title').innerHTML=g.title;
+document.getElementById('gal-desc').textContent=g.desc;
+var m=document.getElementById('gal-masonry');
+m.className='gal-masonry'+(g.grid?' grid2':'');
+m.innerHTML='';lbImgs=g.photos.slice();
+g.photos.forEach(function(p,i){
+var d=document.createElement('div');d.className='gal-item';
+d.onclick=function(){openLb(i)};
+d.innerHTML='<img loading="lazy" src="'+p+'" alt="'+g.title+'">';
+m.appendChild(d);
+});
+_showOverlay('pg-gallery');
+}
+/* ── PUBLIC API (with history push) ───────────────────────────────────── */
+function goHome(){
+_pushHash('');
+_showHome();
+}
+function openOverlay(id){
+var hashMap={'pg-portraits':'portraits','pg-couples':'couples','pg-weddings':'weddings','pg-more':'more','pg-video':'video'};
+var h=hashMap[id]||id;
+_pushHash(h);
+_showOverlay(id);
+}
+function openGallery(id){
+_pushHash(id);
+_showGallery(id);
+}
+function closeGallery(){
+// go back to parent section
+var parentHash={'pg-portraits':'portraits','pg-couples':'couples','pg-more':'more'};
+_pushHash(parentHash[galBack]||'portraits');
+_showOverlay(galBack);
+}
+function closeOverlay(id){
+goHome();
+}
+/* reveal */
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px 80px 0px'});
+function rv(){document.querySelectorAll('.rv:not(.vis)').forEach(function(el){obs.observe(el)})}
+rv();
+/* nav scroll */
+window.addEventListener('scroll',function(){var n=document.getElementById('nav');if(n)n.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
+/* ── INIT: route on load ───────────────────────────────────────────────── */
+(function(){
+// Set initial history state
+history.replaceState({hash:_getHash()},'',location.href);
+_route();
+})();
+/* lightbox */
+function isMob(){return window.innerWidth<=900}
+var _lbZoom=null,_lbSX=0,_lbSY=0,_lbDragging=false;
+var _panX=0,_panY=0,_zoomScale=1;
+
+function _lbSlide(track,idx,anim){
+track.style.transition=anim?'transform .3s cubic-bezier(.25,.46,.45,.94)':'none';
+track.style.transform='translateX('+(-(idx*100))+'vw)';
+}
+
+function _applyZoom(img,scale,ox,oy){
+// ox,oy = touch point relative to image element (px from top-left)
+// With transformOrigin 0,0: translate so the tap point stays fixed
+_panX=ox*(1-scale);_panY=oy*(1-scale);
+_zoomScale=scale;
+img.style.transformOrigin='0 0';
+img.style.transition='transform .25s ease';
+img.style.transform='translate('+_panX+'px,'+_panY+'px) scale('+scale+')';
+_lbZoom=img;
+}
+
+function _resetZoomImg(img){
+img.style.transition='transform .25s ease';
+img.style.transform='scale(1)';
+img.style.transformOrigin='center';
+_lbZoom=null;_panX=0;_panY=0;_zoomScale=1;
+}
+
+function openLb(i){
+lbIdx=i;_lbZoom=null;_panX=0;_panY=0;_zoomScale=1;
+var lb=document.getElementById('lb');
+if(isMob()){
+var track=document.getElementById('lb-track');
+track.innerHTML='';track.style.transition='none';track.style.transform='translateX(0)';
+lbImgs.forEach(function(src){
+var s=document.createElement('div');s.className='lb-slide';
+var img=document.createElement('img');img.src=src;img.alt='';
+s.appendChild(img);track.appendChild(s);
+});
+lb.classList.add('on');
+document.body.style.overflow='hidden';
+document.documentElement.style.overflow='hidden';
+requestAnimationFrame(function(){ _lbSlide(track,i,false); });
+
+lb.ontouchstart=function(e){
+  if(e.touches.length!==1)return;
+  _lbSX=e.touches[0].clientX;_lbSY=e.touches[0].clientY;
+  _lbDragging=!_lbZoom;
+};
+lb.ontouchmove=function(e){
+  e.preventDefault();
+  if(e.touches.length!==1)return;
+  if(_lbZoom){
+    // pan the zoomed image
+    var dx=e.touches[0].clientX-_lbSX;
+    var dy=e.touches[0].clientY-_lbSY;
+    _panX+=dx;_panY+=dy;
+    _lbSX=e.touches[0].clientX;_lbSY=e.touches[0].clientY;
+    _lbZoom.style.transition='none';
+    _lbZoom.style.transform='translate('+_panX+'px,'+_panY+'px) scale('+_zoomScale+')';
+  }
+};
+lb.ontouchend=function(e){
+  if(!_lbZoom&&_lbDragging){
+    _lbDragging=false;
+    var dx=e.changedTouches[0].clientX-_lbSX;
+    var dy=e.changedTouches[0].clientY-_lbSY;
+    if(Math.abs(dx)<12&&Math.abs(dy)<12){
+      if(e.target.tagName!=='IMG'){closeLb();return;}
+    }
+    if(Math.abs(dx)<Math.abs(dy)*1.5||Math.abs(dx)<35)return;
+    if(dx<0&&lbIdx<lbImgs.length-1)lbIdx++;
+    else if(dx>0&&lbIdx>0)lbIdx--;
+    _lbSlide(track,lbIdx,true);
+  }
+  _lbDragging=false;
+};
+
+// double-tap to zoom
+track.querySelectorAll('img').forEach(function(img){
+var _t=false,_tt=null;
+img.addEventListener('touchend',function(e){
+if(e.touches.length>0)return;
+if(_t){
+  clearTimeout(_tt);_t=false;
+  e.preventDefault();e.stopPropagation();
+  if(_lbZoom===img){_resetZoomImg(img);}
+  else{
+    var r=img.getBoundingClientRect();
+    var tc=e.changedTouches[0];
+    var ox=tc.clientX-r.left;
+    var oy=tc.clientY-r.top;
+    _applyZoom(img,2.5,ox,oy);
+  }
+} else {_t=true;_tt=setTimeout(function(){_t=false;},260);}
+});
+});
+
+}else{
+var im=document.getElementById('lb-img');resetZoom(im);im.src=lbImgs[i];
+lb.classList.add('on');document.body.style.overflow='hidden';
+}
+}
+function closeLb(){
+if(_lbZoom){_resetZoomImg(_lbZoom);}
+var im=document.getElementById('lb-img');resetZoom(im);
+var lb=document.getElementById('lb');
+lb.ontouchstart=lb.ontouchmove=lb.ontouchend=null;
+lb.classList.remove('on');
+document.body.style.overflow='';
+document.documentElement.style.overflow='';
+}
+function lbNav(d){lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;var im=document.getElementById('lb-img');resetZoom(im);im.src=lbImgs[lbIdx];}
+function resetZoom(im){im.classList.remove('zoomed');im.style.transform='scale(1)';im.style.transformOrigin='center center';}
+/* desktop zoom on click */
+(function(){
+var im=document.getElementById('lb-img');if(!im)return;
+im.addEventListener('click',function(e){
+e.stopPropagation();
+if(im.classList.contains('zoomed')){resetZoom(im);return;}
+var r=im.getBoundingClientRect();
+im.style.transformOrigin=((e.clientX-r.left)/r.width*100)+'% '+((e.clientY-r.top)/r.height*100)+'%';
+im.classList.add('zoomed');im.style.transform='scale(2.4)';
+});
+})();
+document.addEventListener('keydown',function(e){
+if(!document.getElementById('lb').classList.contains('on'))return;
+if(e.key==='Escape')closeLb();
+if(!isMob()){if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);}
+});
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)closeLb();});
+/* video */
+function playVideo(el,vid){
+if(window.innerWidth<=900){openVideoFs(vid);return;}
+el.innerHTML='<div class="yt-iframe-wrap"><iframe src="https://www.youtube.com/embed/'+vid+'?autoplay=1&rel=0" allow="autoplay;encrypted-media" allowfullscreen></iframe></div>';
+}
+function openVideoFs(vid){var f=document.getElementById('yt-fs');f.querySelector('iframe')&&f.querySelector('iframe').remove();var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/'+vid+'?autoplay=1&rel=0';i.allow='autoplay;encrypted-media';i.allowFullscreen=true;f.appendChild(i);f.style.display='block';document.body.style.overflow='hidden'}
+function closeVideoFs(){var f=document.getElementById('yt-fs');var i=f.querySelector('iframe');if(i)i.remove();f.style.display='none';document.body.style.overflow='hidden'}
+function cfSubmit(e){
+e.preventDefault();
+var btn=document.getElementById('cf-submit');
+btn.textContent='Sending...';btn.disabled=true;
+emailjs.send('service_c2p1x5s','template_71hukdj',{
+name:document.getElementById('cf-name').value,
+email:document.getElementById('cf-email').value,
+message:document.getElementById('cf-message').value
+}).then(function(){
+document.getElementById('cf').style.display='none';
+document.getElementById('cf-ok').style.display='block';
+},function(){
+btn.textContent='Send message';btn.disabled=false;
+alert('Something went wrong. Please email info.stauridis@gmail.com directly.');
+});
+}
+</script>
+<script>
+(function(){
+  var l=document.createElement('link');
+  l.rel='stylesheet';
+  l.href='https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Caveat:wght@500;600&family=Jost:wght@300;400;500&display=optional';
+  document.head.appendChild(l);
+})();
+</script>
+</body>
+</html>
