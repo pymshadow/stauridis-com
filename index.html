@@ -158,6 +158,9 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
 .f-client:hover{color:var(--gold)}
 .f-admin{color:inherit;text-decoration:none;cursor:default}
 .nav-client{white-space:nowrap}
+/* Διακριτικό language switch — μικρό, αχνό, ζωντανεύει στο hover */
+.lang-sw{background:none;border:none;cursor:pointer;font-family:'Raleway',sans-serif;font-size:8.5px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--ink4);opacity:.55;padding:0;transition:opacity .3s,color .3s}
+.lang-sw:hover{opacity:1;color:var(--gold)}
 
 /* ── OVERLAY HERO ── */
 .ov-hero{padding:100px 60px 48px;position:relative;overflow:hidden;border-bottom:1px solid rgba(200,169,110,.08)}
@@ -397,6 +400,7 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
     <a href="#" onclick="goHome();ssc('#contact');return false">Contact</a>
     <a href="https://gallery.stauridis.com" target="_blank" rel="noopener" class="nav-client">Client Area</a>
     <button class="nav-more" onclick="openOverlay('pg-more')">More ↗</button>
+    <button class="lang-sw" id="lang-sw" onclick="swLang()" title="Ελληνικά">ΕΛ</button>
   </div>
 </nav>
 
@@ -1285,5 +1289,111 @@ window.addEventListener('popstate', function(){
 </div>
 
 </main>
+<script>
+/* ── Ελληνική μετάφραση: string-swap σε text nodes + MutationObserver
+   (πιάνει και τις JS-generated σελίδες/galleries χωρίς refactor) ── */
+const GR = new Map([
+  ['Work', 'Δουλειά'], ['About', 'Σχετικά'], ['Contact', 'Επικοινωνία'],
+  ['More ↗', 'Περισσότερα ↗'], ['Scroll', 'Scroll'],
+  ['Photography & Film', 'Photography & Film'],
+  ['"The Best Moments Happen When You Forget The', '«Οι Καλύτερες Στιγμές Συμβαίνουν Όταν Ξεχνάς Ότι'],
+  ['Camera Is There', 'Υπάρχει Κάμερα'],
+  ['"', '»'],
+  ['Athens  ·  Greece  ·  Worldwide', 'Αθήνα  ·  Ελλάδα  ·  Παντού'],
+  ['Featured Work', 'Επιλεγμένη Δουλειά'], ['Additional Services', 'Επιπλέον Υπηρεσίες'],
+  ['Selected', 'Επιλεγμένο'],
+  ['Portraits', 'Πορτραίτα'], ['Couple Photoshoots', 'Φωτογραφίσεις Ζευγαριών'], ['Weddings & Baptisms', 'Γάμοι & Βαπτίσεις'],
+  ['Personal, editorial & corporate portraits that reveal the essence of each individual.', 'Προσωπικά, editorial & εταιρικά πορτραίτα που αναδεικνύουν την ουσία κάθε ανθρώπου.'],
+  ['Intimate sessions that tell the story of your connection — natural, candid, timeless.', 'Φωτογραφίσεις που αφηγούνται την ιστορία σας — φυσικά, αυθόρμητα, διαχρονικά.'],
+  ['The most meaningful days of your life, documented with elegance and care.', 'Οι πιο σημαντικές μέρες της ζωής σας, με κομψότητα και φροντίδα.'],
+  ['View Gallery', 'Δείτε το Gallery'],
+  ['Photographer & Filmmaker', 'Φωτογράφος & Filmmaker'],
+  ["I'm Panagiotis, a photographer from Athens, drawn to natural light and genuine connection.", 'Είμαι ο Παναγιώτης, φωτογράφος από την Αθήνα, με αγάπη για το φυσικό φως και την αληθινή σύνδεση.'],
+  ['My focus is romantic couples and modern portraits, capturing emotion in a way that feels natural, chasing moments that feel real.', 'Επικεντρώνομαι σε ζευγάρια και μοντέρνα πορτραίτα, αποτυπώνοντας το συναίσθημα φυσικά — κυνηγώντας στιγμές που είναι αληθινές.'],
+  ["Let's create together", 'Ας δημιουργήσουμε μαζί'], ['Interested?', 'Ενδιαφέρεστε;'],
+  ['Get in touch', 'Επικοινωνήστε'], ["Let's talk", 'Ας τα πούμε'],
+  ['Send message', 'Αποστολή μηνύματος'],
+  ["✦   Message sent — I'll be in touch soon.", '✦   Το μήνυμα εστάλη — θα επικοινωνήσω σύντομα.'],
+  // Overlay τίτλοι (σπασμένοι σε fragments γύρω από <em>)
+  ['Port', 'Πορ'], ['raits', 'τραίτα'],
+  ['Couple', 'Φωτογραφίσεις'], ['Photoshoots', 'Ζευγαριών'],
+  ['Weddings &', 'Γάμοι &'], ['Baptisms', 'Βαπτίσεις'],
+  ['More of', 'Κι άλλα απ’'], ['what we do', 'όσα κάνουμε'],
+  ['Personal, editorial and corporate portraits — each session a unique story told through light and emotion.', 'Προσωπικά, editorial και εταιρικά πορτραίτα — κάθε φωτογράφιση μια μοναδική ιστορία από φως και συναίσθημα.'],
+  ['Corporate events, club nights, concerts, and private parties — captured with energy, atmosphere and precision.', 'Εταιρικά events, club nights, συναυλίες και ιδιωτικά πάρτι — με ενέργεια, ατμόσφαιρα και ακρίβεια.'],
+  ['From raw footage to polished film — cinematic long-form films and dynamic reels that tell your story.', 'Από το raw υλικό στο τελικό film — κινηματογραφικά videos και δυναμικά reels που αφηγούνται την ιστορία σας.'],
+  ['Urban stories, travel moments, and documentary photography — the world as it is, raw and beautiful.', 'Αστικές ιστορίες, ταξιδιωτικές στιγμές και documentary φωτογραφία — ο κόσμος όπως είναι.'],
+  ['Events & Nightlife', 'Events & Nightlife'], ['Street Photography', 'Street Photography'], ['Video Editing', 'Video Editing'],
+  ['Corporate · Clubs · Concerts', 'Εταιρικά · Clubs · Συναυλίες'],
+  ['Urban · Travel · Documentary', 'Αστικό · Ταξίδια · Documentary'],
+  ['Films · Reels · Highlights', 'Films · Reels · Highlights'],
+  ['Rome · Portrait Session', 'Ρώμη · Πορτραίτο'],
+  ['Athens · Portrait Session', 'Αθήνα · Πορτραίτο'],
+  ['Studio · Valentine Session', 'Studio · Valentine Φωτογράφιση'],
+  ['Studio · Editorial Session', 'Studio · Editorial'],
+  ['Boxing Photoshoot', 'Boxing Φωτογράφιση'],
+  ['Athens · Couple Session', 'Αθήνα · Φωτογράφιση Ζευγαριού'],
+  ['Samos Beach · Couple Session', 'Σάμος · Φωτογράφιση Ζευγαριού'],
+  ['← Back', '← Πίσω'], ['← Back to portraits', '← Πίσω στα πορτραίτα'], ['← Back to portfolio', '← Πίσω στο portfolio'],
+])
+const PLACEHOLDERS = new Map([
+  ['Your name', 'Το όνομά σας'], ['Your email', 'Το email σας'],
+  ['Tell me about your project...', 'Πείτε μου για το project σας...'],
+])
+
+let siteLang = localStorage.getItem('st-lang') || 'en'
+const origText = new WeakMap()
+
+function translateTree(root) {
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+  let n
+  while ((n = w.nextNode())) {
+    const raw = n.nodeValue
+    const key = raw.trim()
+    if (!key) continue
+    if (siteLang === 'el') {
+      const gr = GR.get(key)
+      if (gr !== undefined && gr !== key) {
+        if (!origText.has(n)) origText.set(n, raw)
+        n.nodeValue = raw.replace(key, gr)
+      }
+    } else if (origText.has(n)) {
+      n.nodeValue = origText.get(n)
+    }
+  }
+  root.querySelectorAll?.('input,textarea').forEach(el => {
+    const ph = el.getAttribute('placeholder')
+    if (!ph) return
+    if (siteLang === 'el' && PLACEHOLDERS.has(ph)) {
+      el.dataset.phEn = ph
+      el.setAttribute('placeholder', PLACEHOLDERS.get(ph))
+    } else if (siteLang === 'en' && el.dataset.phEn) {
+      el.setAttribute('placeholder', el.dataset.phEn)
+    }
+  })
+}
+
+function swLang() {
+  siteLang = siteLang === 'en' ? 'el' : 'en'
+  localStorage.setItem('st-lang', siteLang)
+  document.documentElement.lang = siteLang
+  document.getElementById('lang-sw').textContent = siteLang === 'en' ? 'ΕΛ' : 'EN'
+  translateTree(document.body)
+}
+
+// Οι JS-generated σελίδες (galleries) μεταφράζονται μόλις μπουν στο DOM
+new MutationObserver(muts => {
+  if (siteLang !== 'el') return
+  for (const m of muts) for (const node of m.addedNodes) {
+    if (node.nodeType === 1) translateTree(node)
+  }
+}).observe(document.body, { childList: true, subtree: true })
+
+if (siteLang === 'el') {
+  document.documentElement.lang = 'el'
+  document.getElementById('lang-sw').textContent = 'EN'
+  translateTree(document.body)
+}
+</script>
 </body>
 </html>
