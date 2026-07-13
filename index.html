@@ -77,6 +77,12 @@ nav.scrolled{background:rgba(26,24,18,.92);border-bottom:1px solid rgba(200,169,
 .nav-r a:hover,.nav-r button:hover{color:var(--cream)}
 .nav-more{border:1px solid rgba(200,169,110,.3)!important;padding:8px 18px!important;color:var(--gold)!important;transition:background .3s,border-color .3s,color .3s!important}
 .nav-more:hover{background:rgba(200,169,110,.1)!important;border-color:var(--gold)!important;color:var(--gold2)!important}
+/* Hamburger + dropdown: κρυφά σε desktop, ενεργά μόνο σε mobile (βλ. media query) */
+.nav-burger{display:none;font-size:16px!important;letter-spacing:0!important;line-height:1;color:var(--gold)!important}
+.nav-drop{display:none;position:absolute;top:100%;right:20px;margin-top:10px;flex-direction:column;min-width:150px;background:rgba(26,24,18,.97);border:1px solid rgba(200,169,110,.18);border-radius:8px;backdrop-filter:blur(12px);padding:8px;gap:2px;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.nav-drop.open{display:flex}
+.nav-drop a,.nav-drop button{font-family:'Raleway',sans-serif;font-size:10px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--ink4);text-decoration:none;background:none;border:none;text-align:left;padding:11px 14px;border-radius:6px;cursor:pointer;transition:background .25s,color .25s}
+.nav-drop a:hover,.nav-drop button:hover{background:rgba(200,169,110,.1);color:var(--gold)}
 
 /* ── HERO ── */
 .hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
@@ -229,13 +235,17 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
   /* NAV */
   nav { padding: 18px 20px; }
   .logo { font-size: 15px; }
-  .nav-r { gap: 12px; }
+  .nav-r { gap: 14px; }
   .nav-r a { font-size: 8px; letter-spacing: .18em; }
-  .nav-r a:nth-child(1) { display: none; } /* hide Work on mobile (scroll το βρίσκει) */
-  .nav-r a:nth-child(2) { display: none; } /* hide About on mobile */
-  .nav-r a:nth-child(3) { display: none; } /* hide Contact on mobile — αλλιώς στα ελληνικά το nav ξεχειλίζει και χάνεται το ΕΛ/EN */
+  /* Work/About/Contact + More μετακομίζουν στο hamburger dropdown — στα ελληνικά
+     τα μακριά labels δεν χωράνε inline στα 375px. Client Area + ΕΛ μένουν στο bar. */
+  .nav-r > a:nth-child(1),
+  .nav-r > a:nth-child(2),
+  .nav-r > a:nth-child(3) { display: none; }
+  .nav-more { display: none !important; }
+  .nav-burger { display: block; }
+  .nav-client { flex-shrink: 0; }
   .lang-sw { flex-shrink: 0; }
-  .nav-more { padding: 6px 12px !important; font-size: 8px !important; }
 
   /* HERO */
   .hero { height: 100svh; align-items: flex-end; }
@@ -402,6 +412,14 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
     <a href="https://gallery.stauridis.com" target="_blank" rel="noopener" class="nav-client">Client Area</a>
     <button class="nav-more" onclick="openOverlay('pg-more')">More ↗</button>
     <button class="lang-sw" id="lang-sw" onclick="swLang()" title="Ελληνικά">ΕΛ</button>
+    <button class="nav-burger" id="nav-burger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+  <!-- Mobile dropdown: τα ίδια links (translateTree τα μεταφράζει από το κείμενο) -->
+  <div class="nav-drop" id="nav-drop">
+    <a href="#" onclick="closeMenu();goHome();ssc('#work');return false">Work</a>
+    <a href="#" onclick="closeMenu();goHome();ssc('#about');return false">About</a>
+    <a href="#" onclick="closeMenu();goHome();ssc('#contact');return false">Contact</a>
+    <button onclick="closeMenu();openOverlay('pg-more')">More ↗</button>
   </div>
 </nav>
 
@@ -1373,6 +1391,26 @@ function translateTree(root) {
     }
   })
 }
+
+function toggleMenu() {
+  const drop = document.getElementById('nav-drop')
+  const burger = document.getElementById('nav-burger')
+  const open = drop.classList.toggle('open')
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false')
+  burger.textContent = open ? '✕' : '☰'
+}
+function closeMenu() {
+  const drop = document.getElementById('nav-drop')
+  const burger = document.getElementById('nav-burger')
+  drop.classList.remove('open')
+  burger.setAttribute('aria-expanded', 'false')
+  burger.textContent = '☰'
+}
+// Κλείσιμο dropdown με κλικ έξω από το nav
+document.addEventListener('click', e => {
+  const drop = document.getElementById('nav-drop')
+  if (drop.classList.contains('open') && !e.target.closest('#nav')) closeMenu()
+})
 
 function swLang() {
   siteLang = siteLang === 'en' ? 'el' : 'en'
