@@ -229,10 +229,12 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
   /* NAV */
   nav { padding: 18px 20px; }
   .logo { font-size: 15px; }
-  .nav-r { gap: 16px; }
+  .nav-r { gap: 12px; }
   .nav-r a { font-size: 8px; letter-spacing: .18em; }
   .nav-r a:nth-child(1) { display: none; } /* hide Work on mobile (scroll το βρίσκει) */
   .nav-r a:nth-child(2) { display: none; } /* hide About on mobile */
+  .nav-r a:nth-child(3) { display: none; } /* hide Contact on mobile — αλλιώς στα ελληνικά το nav ξεχειλίζει και χάνεται το ΕΛ/EN */
+  .lang-sw { flex-shrink: 0; }
   .nav-more { padding: 6px 12px !important; font-size: 8px !important; }
 
   /* HERO */
