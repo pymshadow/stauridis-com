@@ -177,6 +177,12 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
 
 /* ── PORTRAITS GRID ── */
 .portraits-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 60px 0;max-width:900px;margin:0 auto}
+/* Μία μόνο κάρτα: κεντράρισμα αντί για μισό κενό grid — φεύγει μόνο του με τη 2η κάρτα */
+.portraits-list:has(> .p-card:only-child){grid-template-columns:1fr;max-width:460px}
+/* Κάρτα χωρίς φωτογραφίες ακόμα (placeholder) */
+.p-card-empty{cursor:default;border:1px solid rgba(200,169,110,.14)}
+.p-card-empty .p-card-ov{background:linear-gradient(to top,rgba(26,24,18,.92) 0%,rgba(26,24,18,.4) 100%)}
+.p-card-empty .p-name{color:var(--ink4)}
 .p-card{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--dark3);max-height:520px;border-radius:8px;cursor:pointer}
 .p-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;filter:brightness(.85) saturate(.85);transition:transform 1s cubic-bezier(.25,.46,.45,.94),filter .6s}
 .p-card:hover img{transform:scale(1.05);filter:brightness(1) saturate(1)}
@@ -466,7 +472,7 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
         </div>
       </div>
       <div class="cat-card rv rv2" onclick="openOverlay('pg-weddings')">
-        <img loading="lazy" src="photos/weddings.webp" alt="Weddings" style="object-position:center 30%">
+        <img loading="lazy" src="photos/weddings-cover.webp" alt="Weddings" style="object-position:center 25%">
         <div class="cat-ov">
           <div class="cat-num">03</div>
           <div class="cat-title">Weddings &amp; Baptisms</div>
@@ -588,11 +594,11 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
     <div class="ov-desc" id="gal-desc"></div>
   </div>
   <div style="padding:0 60px 20px">
-    <button class="btn" onclick="closeGallery()" style="font-size:8px;padding:8px 18px">← Back to portraits</button>
+    <button class="btn" id="gal-back-top" onclick="closeGallery()" style="font-size:8px;padding:8px 18px">← Back to portraits</button>
   </div>
   <div class="masonry" id="gal-masonry"></div>
   <div style="text-align:center;padding:20px 60px 80px">
-    <button class="btn" onclick="closeGallery()">← Back to portraits</button>
+    <button class="btn" id="gal-back-bottom" onclick="closeGallery()">← Back to portraits</button>
   </div>
   <footer><span class="fc">© 2026 Stauridis Photography &amp; Film</span><a class="fc f-client" href="https://gallery.stauridis.com" target="_blank" rel="noopener">Client Area →</a></footer>
 </div>
@@ -820,13 +826,26 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
     <div class="ov-title">Weddings &amp; <em>Baptisms</em></div>
     <div class="ov-desc">The most meaningful days of your life, documented with elegance and care.</div>
   </div>
-  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 60px 100px;text-align:center">
-    <div class="gline"></div>
-    <p style="font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:400;font-style:italic;color:rgba(200,169,110,.15);line-height:1;margin-bottom:32px">Coming Soon</p>
-    <p style="font-size:11px;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:var(--ink4);margin-bottom:40px">Gallery coming soon — stay tuned</p>
+  <div class="portraits-list">
+    <div class="p-card" onclick="openGalleryFromPage('ofeliaprep','pg-weddings')">
+      <img loading="lazy" src="photos/op_3862.webp" alt="Ofelia Preparation" style="object-position:center 20%">
+      <div class="p-card-ov">
+        <div class="p-name">Ofelia Preparation</div>
+        <div class="p-sub">Bridal Preparation</div>
+        <div class="p-arr">View Gallery <span>→</span></div>
+      </div>
+    </div>
+    <div class="p-card p-card-empty">
+      <div class="p-card-ov">
+        <div class="p-name">Magda &amp; Giannis</div>
+        <div class="p-sub">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:40px 60px 80px">
     <a href="mailto:info.stauridis@gmail.com" class="c-email">info.stauridis@gmail.com</a>
     <div style="margin-top:16px"><a href="https://www.instagram.com/panagiotisstauridis/" target="_blank" class="c-email" style="font-size:11px;letter-spacing:.18em">@panagiotisstauridis</a></div>
-    <div style="margin-top:48px">
+    <div style="margin-top:40px">
       <button class="btn" onclick="closeOverlay('pg-weddings');goHome()">← Back</button>
     </div>
   </div>
@@ -854,6 +873,7 @@ var GALLERIES={
   aggeliki:{title:'Aggeliki & Christos',eyebrow:'Couples · Athens',desc:'A raw, rebellious love story told through motorcycle rides, stolen kisses, and moments that feel like freedom.',photos:['photos/ac_1740.webp','photos/ac_1859.webp','photos/ac_1755.webp','photos/ac_1772.webp','photos/ac_1788.webp','photos/ac_1805.webp','photos/ac_1823.webp','photos/ac_1825.webp','photos/ac_1851.webp']},
   emmanuella:{title:'Emmanuella & Leuteris',eyebrow:'Couples · Samos Beach',desc:'A summer love session by the sea — laughter, water, and warmth that fills every frame.',photos:['photos/el_389.webp','photos/el_425.webp','photos/el_307.webp','photos/el_351.webp','photos/el_401.webp']},
   events:{title:'Events & Nightlife',eyebrow:'Events · Athens',desc:'Corporate events, club nights, concerts, and private parties — captured with energy and precision.',photos:['photos/ev_1.webp','photos/ev_1_1.webp','photos/ev_2.webp','photos/ev_2_1.webp','photos/ev_3.webp','photos/ev_3_1.webp','photos/ev_4.webp','photos/ev_5.webp','photos/ev_5305.webp','photos/ev_0110.webp']},
+  ofeliaprep:{title:'Ofelia Preparation',eyebrow:'Weddings · Bridal Preparation',desc:'The quiet hours before the vows — soft window light, pearls, and the calm anticipation of the day ahead.',photos:['photos/op_3813.webp','photos/op_3807.webp','photos/op_3844.webp','photos/op_3862.webp','photos/op_3816.webp','photos/op_3906.webp','photos/op_3944.webp','photos/op_3823.webp','photos/op_3913.webp','photos/op_3876.webp','photos/op_3850.webp','photos/op_3939.webp','photos/op_3947.webp','photos/op_3826.webp','photos/op_3919.webp','photos/op_3856.webp','photos/op_3975.webp','photos/op_3908.webp','photos/op_3887.webp','photos/op_3837.webp','photos/op_3941.webp','photos/op_4007.webp']},
   street:{title:'Street Photography',eyebrow:'Street · Rome',desc:'Urban stories, travel moments, and documentary photography — the world as it is, raw and beautiful.',photos:['photos/st_3642.webp','photos/st_3677.webp','photos/st_3681.webp','photos/st_3573.webp','photos/st_3489.webp','photos/st_3523.webp','photos/st_3549.webp','photos/st_3554.webp','photos/st_3555.webp','photos/st_3557.webp','photos/st_3563.webp','photos/PAN-35231.webp']}
 };
 var lbImgs=[],lbIdx=0;
@@ -908,9 +928,11 @@ function closeOverlay(id){
 }
 function openGallery(id){galBackPage='pg-portraits';
   var g=GALLERIES[id];if(!g)return;
+  setGalBackLabel('pg-portraits');
   document.getElementById('gal-title').innerHTML=g.title;
   document.getElementById('gal-eyebrow').textContent=g.eyebrow;
   document.getElementById('gal-desc').textContent=g.desc;
+  retranslate(document.querySelector('#pg-gallery .ov-hero'));
   var m=document.getElementById('gal-masonry');m.innerHTML='';
   m.className = g.gridLayout ? 'masonry-grid' : 'masonry';
   lbImgs=g.photos;
@@ -1147,12 +1169,36 @@ function populateMasonry(containerId, photos){
 
 /* ─── OPEN GALLERY FROM SUB-PAGE (back goes to that page) ─── */
 var galBackPage = 'pg-portraits';
+
+/* Η σελίδα gallery είναι κοινή για portraits/couples/weddings — το label του
+   «← Back» ακολουθεί τη σελίδα απ' όπου ήρθαμε, αλλιώς έγραφε πάντα "portraits". */
+var GAL_BACK_LABEL = {
+  'pg-portraits': '← Back to portraits',
+  'pg-couples':   '← Back to couples',
+  'pg-weddings':  '← Back to weddings'
+};
+/* Ό,τι γράφουμε με textContent/innerHTML δεν το πιάνει ο MutationObserver της
+   μετάφρασης (βλέπει elements, όχι text nodes) — το περνάμε χειροκίνητα. */
+function retranslate(el){
+  if(el && document.documentElement.lang === 'el' && typeof translateTree === 'function') translateTree(el);
+}
+function setGalBackLabel(backPage){
+  var txt = GAL_BACK_LABEL[backPage] || '← Back';
+  ['gal-back-top','gal-back-bottom'].forEach(function(bid){
+    var b = document.getElementById(bid); if(!b) return;
+    b.textContent = txt;
+    retranslate(b.parentNode);
+  });
+}
+
 function openGalleryFromPage(id, backPage){
   galBackPage = backPage;
+  setGalBackLabel(backPage);
   var g = GALLERIES[id]; if(!g) return;
   document.getElementById('gal-title').textContent = g.title;
   document.getElementById('gal-eyebrow').textContent = g.eyebrow;
   document.getElementById('gal-desc').textContent = g.desc;
+  retranslate(document.querySelector('#pg-gallery .ov-hero'));
   var m = document.getElementById('gal-masonry'); m.innerHTML = '';
   lbImgs = g.photos;
   g.photos.forEach(function(src, i){
@@ -1215,6 +1261,7 @@ var HASH_MAP = {
   '#giannis':    function(){ openOverlay('pg-portraits'); setTimeout(function(){ openGallery('giannis'); }, 350); },
   '#aggeliki':   function(){ openOverlay('pg-couples'); setTimeout(function(){ openGalleryFromPage('aggeliki','pg-couples'); }, 350); },
   '#emmanuella': function(){ openOverlay('pg-couples'); setTimeout(function(){ openGalleryFromPage('emmanuella','pg-couples'); }, 350); },
+  '#ofeliaprep': function(){ openOverlay('pg-weddings'); setTimeout(function(){ openGalleryFromPage('ofeliaprep','pg-weddings'); }, 350); },
 };
 
 function handleHash(){
@@ -1353,7 +1400,13 @@ const GR = new Map([
   ['Boxing Photoshoot', 'Boxing Φωτογράφιση'],
   ['Athens · Couple Session', 'Αθήνα · Φωτογράφιση Ζευγαριού'],
   ['Samos Beach · Couple Session', 'Σάμος · Φωτογράφιση Ζευγαριού'],
+  ['Bridal Preparation', 'Προετοιμασία Νύφης'],
+  ['Weddings · Bridal Preparation', 'Γάμοι · Προετοιμασία Νύφης'],
+  ['Ofelia Preparation', 'Προετοιμασία Οφέλιας'],
+  ['Coming Soon', 'Προσεχώς'],
+  ['The quiet hours before the vows — soft window light, pearls, and the calm anticipation of the day ahead.', 'Οι ήσυχες ώρες πριν το μυστήριο — απαλό φως, πέρλες και η γαλήνια προσμονή της μέρας.'],
   ['← Back', '← Πίσω'], ['← Back to portraits', '← Πίσω στα πορτραίτα'], ['← Back to portfolio', '← Πίσω στο portfolio'],
+  ['← Back to couples', '← Πίσω στα ζευγάρια'], ['← Back to weddings', '← Πίσω στους γάμους'],
 ])
 const PLACEHOLDERS = new Map([
   ['Your name', 'Το όνομά σας'], ['Your email', 'Το email σας'],
