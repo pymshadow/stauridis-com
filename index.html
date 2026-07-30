@@ -1021,9 +1021,11 @@ function lbNav(d){
   lbScale=1; lbLastScale=1;
 }
 
-// Click to zoom into exact click position
-document.getElementById('lb-img').addEventListener('click',function(e){
+// Double-click to zoom into exact click position (ένα click δεν κάνει τίποτα,
+// ώστε να συμφωνεί με το double-tap του mobile)
+document.getElementById('lb-img').addEventListener('dblclick',function(e){
   e.stopPropagation();
+  e.preventDefault();
   var img = this;
   var rect = img.getBoundingClientRect();
   if(lbScale === 1){
