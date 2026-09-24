@@ -184,7 +184,8 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
 
 /* ── PORTRAITS GRID ── */
 .portraits-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 60px 0;max-width:900px;margin:0 auto}
-.street-list{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1200px}
+.street-list{grid-template-columns:repeat(4,minmax(0,1fr));max-width:1400px}
+@media(max-width:1200px){.street-list{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}}
 /* Μία μόνο κάρτα: κεντράρισμα αντί για μισό κενό grid — φεύγει μόνο του με τη 2η κάρτα */
 .portraits-list:has(> .p-card:only-child){grid-template-columns:1fr;max-width:460px}
 /* Κάρτα χωρίς φωτογραφίες ακόμα (placeholder) */
@@ -750,6 +751,14 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
         <div class="p-arr">View Gallery <span>→</span></div>
       </div>
     </div>
+    <div class="p-card" onclick="openGalleryFromPage('centralathens','pg-street')">
+      <img loading="lazy" src="photos/sm/athens_center_1030131.webp" alt="Black and white view of the Acropolis Museum">
+      <div class="p-card-ov">
+        <div class="p-name">Central Athens</div>
+        <div class="p-sub">Street · Athens</div>
+        <div class="p-arr">View Gallery <span>→</span></div>
+      </div>
+    </div>
   </div>
   <div style="text-align:center;padding:20px 60px 80px">
     <a href="mailto:info.stauridis@gmail.com" class="c-email">info.stauridis@gmail.com</a>
@@ -922,7 +931,8 @@ var GALLERIES={
   magda:{title:'Magda & Giannis',eyebrow:'Weddings · Wedding Day',desc:'A full wedding day, from the first quiet preparations to the last dance — told in the order it happened.',photos:['photos/mg_toast.webp 1333x2000','photos/mg_7141.webp 1333x2000','photos/mg_7145.webp 2000x1333','photos/mg_7148.webp 1333x2000','photos/mg_7160.webp 1333x2000','photos/mg_7183.webp 1333x2000','photos/mg_7185.webp 2000x1333','photos/mg_7193.webp 2000x1333','photos/mg_7199.webp 2000x1334','photos/mg_7218.webp 2000x1333','photos/mg_7220.webp 1333x2000','photos/mg_7360.webp 1333x2000','photos/mg_7388.webp 1333x2000','photos/mg_7407_v2.webp 2000x1333','photos/mg_7432.webp 2000x1333','photos/mg_7463.webp 2000x1333','photos/mg_7515.webp 2000x1333','photos/mg_7524.webp 2000x1333','photos/mg_7593.webp 1333x2000','photos/mg_7599.webp 1333x2000','photos/mg_7660.webp 2000x1333','photos/mg_7743.webp 2000x1333','photos/mg_7746.webp 2000x1333','photos/mg_7761.webp 2000x1333','photos/mg_7826_v2.webp 2000x1333','photos/mg_7848.webp 1333x2000','photos/mg_7850.webp 1333x2000','photos/mg_7863.webp 1333x2000','photos/mg_7865.webp 2000x1333','photos/mg_7874.webp 2000x1333','photos/mg_7898.webp 1333x2000','photos/mg_7906.webp 2000x1333','photos/mg_7913.webp 1333x2000','photos/mg_7916.webp 1333x2000','photos/mg_7925.webp 1333x2000','photos/mg_7930.webp 2000x1333','photos/mg_7954.webp 2000x1333','photos/mg_7962.webp 1333x2000','photos/mg_7970.webp 2000x1333','photos/mg_7974.webp 1333x2000','photos/mg_7979.webp 1333x2000','photos/mg_7986.webp 1334x2000','photos/mg_8087.webp 2000x1333','photos/mg_8091.webp 1333x2000','photos/mg_8172.webp 2000x1333','photos/mg_8174.webp 2000x1333','photos/mg_8203.webp 1333x2000','photos/mg_8222.webp 1333x2000','photos/mg_8235.webp 2000x1333','photos/mg_8279.webp 1333x2000','photos/mg_8283.webp 1333x2000','photos/mg_8291.webp 1333x2000','photos/mg_8294.webp 1333x2000','photos/mg_8328.webp 1333x2000','photos/mg_8349.webp 1333x2000','photos/mg_8359.webp 2000x1333','photos/mg_8373.webp 2000x1333','photos/mg_8395.webp 1333x2000','photos/mg_8412.webp 1333x2000','photos/mg_8429.webp 1333x2000','photos/mg_8438.webp 1333x2000','photos/mg_8448.webp 1333x2000','photos/mg_8454.webp 1333x2000','photos/mg_8459.webp 2000x1333','photos/mg_8472.webp 2000x1333','photos/mg_8476.webp 2000x1333','photos/mg_8498.webp 2000x1333','photos/mg_8522.webp 2000x1333','photos/mg_8583.webp 1333x2000','photos/mg_8595.webp 1333x2000','photos/mg_8600.webp 1333x2000','photos/mg_8605.webp 2000x1333','photos/mg_8625.webp 2000x1333','photos/mg_8638.webp 2000x1333','photos/mg_8651.webp 2000x1333','photos/mg_8656.webp 2000x1333','photos/mg_8661.webp 2000x1333','photos/mg_8670.webp 1333x2000','photos/mg_8676.webp 1333x2000','photos/mg_8703.webp 1333x2000','photos/mg_8711_v2.webp 1333x2000','photos/mg_8847.webp 2000x1333','photos/mg_8862.webp 2000x1333','photos/mg_8870.webp 1333x2000','photos/mg_8883.webp 1333x2000','photos/mg_8886.webp 2000x1333','photos/mg_8967.webp 1333x2000','photos/mg_9006.webp 2000x1333','photos/mg_9009.webp 2000x1333','photos/mg_9125.webp 2000x1333','photos/mg_9132.webp 2000x1333','photos/mg_9146.webp 1333x2000','photos/mg_9147.webp 1333x2000','photos/mg_9165.webp 1333x2000','photos/mg_9441.webp 1333x2000','photos/mg_9462.webp 2000x1333','photos/mg_9543.webp 2000x1333','photos/mg_9547.webp 1333x2000','photos/mg_9550_v2.webp 2000x1333','photos/mg_9552.webp 2000x1333']},
   rome2026:{title:'Rome 2026',eyebrow:'Street · Rome 2026',desc:'Street scenes from Rome, collected in 2026.',photos:['photos/st_3642.webp','photos/st_3677.webp','photos/st_3681.webp','photos/st_3573.webp','photos/st_3489.webp','photos/st_3523.webp','photos/st_3549.webp','photos/st_3554.webp','photos/st_3555.webp','photos/st_3557.webp','photos/st_3563.webp','photos/PAN-35231.webp']},
   karttrack:{title:'Kart Track',eyebrow:'Street · Kart Track',desc:'Motion and speed at the kart track.',photos:['photos/kart_track_01.webp 1440x960','photos/kart_track_02.webp 2000x1334','photos/kart_track_03.webp 2000x1333']},
-  northgreece2026:{title:'Northern Greece 2026',eyebrow:'Street · Northern Greece',desc:'People, places, and landscapes across Northern Greece.',photos:['photos/north_2026_5068.webp 1333x2000','photos/north_2026_5089.webp 2000x1333','photos/north_2026_5087.webp 1333x2000','photos/north_2026_5086.webp 1333x2000','photos/north_2026_5131.webp 1333x2000','photos/north_2026_5115.webp 2000x1333','photos/north_2026_5102.webp 1333x2000','photos/north_2026_5118.webp 1333x2000','photos/north_2026_5042.webp 1333x2000']}
+  northgreece2026:{title:'Northern Greece 2026',eyebrow:'Street · Northern Greece',desc:'People, places, and landscapes across Northern Greece.',photos:['photos/north_2026_5068.webp 1333x2000','photos/north_2026_5089.webp 2000x1333','photos/north_2026_5087.webp 1333x2000','photos/north_2026_5086.webp 1333x2000','photos/north_2026_5131.webp 1333x2000','photos/north_2026_5115.webp 2000x1333','photos/north_2026_5102.webp 1333x2000','photos/north_2026_5118.webp 1333x2000','photos/north_2026_5042.webp 1333x2000']},
+  centralathens:{title:'Central Athens',eyebrow:'Street · Athens',desc:'Street life, people, and architecture in the heart of Athens.',photos:['photos/athens_center_1030156.webp 1500x2000','photos/athens_center_1030224.webp 1500x2000','photos/athens_center_1030236.webp 1500x2000','photos/athens_center_1030124.webp 1500x2000','photos/athens_center_1030187.webp 1500x2000','photos/athens_center_1030135.webp 1500x2000','photos/athens_center_1030129.webp 2000x1500','photos/athens_center_1030131.webp 1500x2000','photos/athens_center_1030200.webp 1500x2000','photos/athens_center_1030228.webp 1500x2000','photos/athens_center_1030147.webp 1500x2000','photos/athens_center_1030143.webp 1500x2000']}
 };
 var lbImgs=[],lbIdx=0;
 
@@ -1341,6 +1351,7 @@ var HASH_MAP = {
   '#rome2026':   function(){ openOverlay('pg-street'); setTimeout(function(){ openGalleryFromPage('rome2026','pg-street'); }, 350); },
   '#karttrack':  function(){ openOverlay('pg-street'); setTimeout(function(){ openGalleryFromPage('karttrack','pg-street'); }, 350); },
   '#northgreece2026': function(){ openOverlay('pg-street'); setTimeout(function(){ openGalleryFromPage('northgreece2026','pg-street'); }, 350); },
+  '#centralathens': function(){ openOverlay('pg-street'); setTimeout(function(){ openGalleryFromPage('centralathens','pg-street'); }, 350); },
   '#sofia':      function(){ openOverlay('pg-portraits'); setTimeout(function(){ openGallery('sofia'); }, 350); },
   '#george':     function(){ openOverlay('pg-portraits'); setTimeout(function(){ openGallery('george'); }, 350); },
   '#ofelia':     function(){ openOverlay('pg-portraits'); setTimeout(function(){ openGallery('ofelia'); }, 350); },
@@ -1486,6 +1497,8 @@ const GR = new Map([
   ['Northern Greece 2026', 'Βόρεια Ελλάδα 2026'], ['Travel · Northern Greece', 'Ταξίδι · Βόρεια Ελλάδα'],
   ['Street · Northern Greece', 'Street · Βόρεια Ελλάδα'],
   ['People, places, and landscapes across Northern Greece.', 'Άνθρωποι, μέρη και τοπία από τη Βόρεια Ελλάδα.'],
+  ['Central Athens', 'Κέντρο Αθήνας'], ['Street · Athens', 'Street · Αθήνα'],
+  ['Street life, people, and architecture in the heart of Athens.', 'Στιγμές του δρόμου, άνθρωποι και αρχιτεκτονική στο κέντρο της Αθήνας.'],
   ['← Back to street', '← Πίσω στις φωτογραφίες δρόμου'],
   ['Events & Nightlife', 'Events & Nightlife'], ['Street Photography', 'Street Photography'], ['Video Editing', 'Video Editing'],
   ['Corporate · Clubs · Concerts', 'Εταιρικά · Clubs · Συναυλίες'],
