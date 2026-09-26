@@ -70,8 +70,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:24px 60px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,border-color .4s}
 nav.scrolled{background:rgba(26,24,18,.92);border-bottom:1px solid rgba(200,169,110,.1);backdrop-filter:blur(12px)}
-.logo{display:inline-flex;width:72px;height:72px;overflow:hidden;border-radius:50%;text-decoration:none;cursor:pointer;flex:0 0 auto}
-.logo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.logo{display:inline-flex;align-items:center;gap:12px;font-family:'Playfair Display',serif;font-size:17px;font-weight:400;letter-spacing:.18em;color:var(--cream);text-decoration:none;cursor:pointer;flex:0 0 auto}
+.logo img{display:block;width:40px;height:40px;border-radius:50%}
+.logo em{font-style:italic;color:var(--gold)}
 .nav-r{display:flex;align-items:center;gap:36px}
 .nav-r a,.nav-r button{font-family:'Raleway',sans-serif;font-size:9px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--ink4);text-decoration:none;background:none;border:none;transition:color .3s;padding:0;cursor:pointer}
 .nav-r a:hover,.nav-r button:hover{color:var(--cream)}
@@ -249,7 +250,8 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
 
   /* NAV */
   nav { padding: 18px 20px; }
-  .logo { width: 56px; height: 56px; }
+  .logo { font-size: 15px; gap: 10px; }
+  .logo img { width: 32px; height: 32px; }
   .nav-r { gap: 14px; }
   .nav-r a { font-size: 8px; letter-spacing: .18em; }
   /* Work/About/Contact + More μετακομίζουν στο hamburger dropdown — στα ελληνικά
@@ -430,7 +432,7 @@ footer{padding:24px 60px;display:flex;justify-content:space-between;align-items:
 
 <main id="main-content">
 <nav id="nav">
-  <a class="logo" href="#" aria-label="Stauridis Photography" onclick="goHome();window.scrollTo({top:0,behavior:'smooth'});return false"><img src="stauridis-logo.webp" alt="Stauridis Photography" fetchpriority="high"></a>
+  <a class="logo" href="#" onclick="goHome();window.scrollTo({top:0,behavior:'smooth'});return false"><img src="stauridis-logo.webp" alt="" width="40" height="40"><span>Stauridis <em>Photography</em></span></a>
   <div class="nav-r">
     <a href="#" onclick="goHome();ssc('#work');return false">Work</a>
     <a href="#" onclick="goHome();ssc('#about');return false">About</a>
